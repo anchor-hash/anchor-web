@@ -1510,8 +1510,8 @@ export default function Home() {
               <a href="#how-it-works" className="hover:text-body transition-colors">How it works</a>
               <a href="#pricing" className="hover:text-body transition-colors">Pricing</a>
               <a href="#support" className="hover:text-body transition-colors">Support</a>
-              <a href="https://getanchorhealth.app/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-body transition-colors">Privacy</a>
-              <a href="https://getanchorhealth.app/terms" target="_blank" rel="noopener noreferrer" className="hover:text-body transition-colors">Terms</a>
+              <a href="https://app.getanchorhealth.app/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-body transition-colors">Privacy</a>
+              <a href="https://app.getanchorhealth.app/terms" target="_blank" rel="noopener noreferrer" className="hover:text-body transition-colors">Terms</a>
             </nav>
 
             {/* Copyright */}

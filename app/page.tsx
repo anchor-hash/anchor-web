@@ -1188,11 +1188,12 @@ export default function Home() {
               className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
             >
               {[
-                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>, title: 'Exposure Hierarchies', desc: 'Build personalised exposure ladders to gradually reduce avoidance and reclaim your life.' },
-                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>, title: 'AI Thought Coach', desc: 'Interactive CBT-guided conversations that help you challenge distorted beliefs in real time.' },
-                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>, title: 'Full History & Export', desc: 'Unlimited history, detailed charts, and PDF export to share progress with your therapist.' },
-                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>, title: 'Reassurance Tracker', desc: 'Track and reduce reassurance-seeking behaviour — a key driver of health anxiety maintenance.' },
-                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>, title: 'Personalised Plans', desc: 'Weekly Anchor plans built around your symptom patterns, goals, and progress history.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>, title: 'Deep Check-in Insights', desc: 'After every check-in, get a full AI analysis: what\'s likely going on, what would actually matter, and a triage level.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><path d="M3 3l18 18"/></svg>, title: 'Full Pattern Analysis', desc: 'Visualise your anxiety across weeks and months — see your real triggers, trends, and what\'s actually changing.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>, title: 'GP Health Summary', desc: 'Auto-generated summary of your anxiety history, ready to share with a doctor or therapist at your next appointment.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L21 8H6"/></svg>, title: 'Monthly Letter from Anchor', desc: 'A personalised monthly reflection on your progress, patterns, and what to focus on next — written just for you.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>, title: 'Behavioural Experiments', desc: 'Log worry predictions and track what actually happens — the most powerful way to dismantle health anxiety over time.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>, title: 'PHQ-4 Mood Screening', desc: 'Regular validated clinical screening to track anxiety and depression levels, so you can see real progress over time.' },
               ].map((f) => (
                 <FeatureCard key={f.title} icon={f.icon} title={f.title} description={f.desc} isPlus />
               ))}
@@ -1319,14 +1320,15 @@ export default function Home() {
                 tier="Anchor Plus"
                 price="$7.99"
                 annualPrice="$5.33"
-                description="Deeper CBT tools, unlimited history, and an AI thought coach for lasting change."
+                description="Deep insights after every check-in, full pattern analysis, and tools for lasting change."
                 features={[
                   'Everything in Free',
-                  'AI thought coach',
-                  'Exposure hierarchies',
-                  'Reassurance tracker',
-                  'Personalised weekly plans',
-                  'Unlimited history & export',
+                  'Deep check-in insights',
+                  'Full pattern analysis',
+                  'GP health summary',
+                  'Monthly letter from Anchor',
+                  'Behavioural experiments',
+                  'PHQ-4 mood screening',
                   'Priority support',
                 ]}
                 cta="Get Plus"

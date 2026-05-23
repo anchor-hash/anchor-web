@@ -497,7 +497,7 @@ function PricingCard({
           )}
         </motion.div>
         {isAnnual && annualPrice && price !== 'Free' && price !== 'Custom' && (
-          <p className="text-teal text-xs mt-1">Billed annually — save 33%</p>
+          <p className="text-teal text-xs mt-1">Billed annually — save 49% · A$79.99/year</p>
         )}
       </div>
 
@@ -1289,7 +1289,7 @@ export default function Home() {
                           color: isAnnual ? '#0a1628' : '#4ecdc4',
                         }}
                       >
-                        Save 33%
+                        Save 49%
                       </span>
                     )}
                   </motion.button>
@@ -1318,8 +1318,8 @@ export default function Home() {
               />
               <PricingCard
                 tier="Anchor Plus"
-                price="$7.99"
-                annualPrice="$5.33"
+                price="A$12.99"
+                annualPrice="A$6.67"
                 description="Deep insights after every check-in, full pattern analysis, and tools for lasting change."
                 features={[
                   'Everything in Free',

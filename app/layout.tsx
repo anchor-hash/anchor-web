@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description: 'The calm, evidence-based companion for health anxiety. Track symptoms, challenge spirals, and build resilience — free on iPhone.',
   keywords: ['health anxiety', 'anxiety app', 'mental health', 'CBT', 'symptom checker', 'mindfulness'],
   icons: {
-    icon: '/logo.png',
+    icon: '/logo.svg',
     apple: '/logo.png',
   },
   openGraph: {

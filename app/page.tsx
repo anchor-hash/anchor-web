@@ -1069,7 +1069,7 @@ export default function Home() {
       items: [
         { q: 'Notifications aren\'t working', a: 'Go to iPhone Settings → Notifications → Anchor and make sure notifications are enabled. Also check your Focus mode settings aren\'t blocking them.' },
         { q: 'The app won\'t load', a: 'Force-close the app and reopen it. If the issue persists, try deleting and reinstalling. Still broken? Contact us and we\'ll sort it out.' },
-        { q: 'How do I reset my password?', a: 'In the app, go to Profile → Account Settings → Reset Password. You\'ll receive a reset link by email within a few minutes.' },
+        { q: 'How do I reset my password?', a: 'Email us at support@getanchorhealth.app and we\'ll send you a reset link straight away.' },
       ],
     },
     {
@@ -1078,7 +1078,7 @@ export default function Home() {
       items: [
         { q: 'Do you sell my data?', a: 'Never. Your data is yours, full stop. We are not in the business of selling personal information — especially health information.' },
         { q: 'Who can see my entries?', a: 'Only you. All journal entries and check-ins are private and encrypted. No one at Anchor can read your personal entries.' },
-        { q: 'Can I delete my account?', a: 'Yes, at any time. Go to Profile → Account Settings → Delete Account. This permanently removes all your data from our servers.' },
+        { q: 'Can I delete my account?', a: 'Yes, at any time. In the app, tap More → scroll to the Account section → Delete account. This permanently removes all your data from our servers.' },
       ],
     },
   ]
@@ -1198,9 +1198,9 @@ export default function Home() {
               style={{ borderColor: 'rgba(255,255,255,0.07)' }}
             >
               {[
-                { val: 10000, suffix: '+', label: 'check-ins logged' },
-                { val: 4.8, suffix: '★', label: 'App Store rating' },
-                { val: 40, suffix: '+', label: 'countries' },
+                { val: 6, suffix: ' CBT techniques', label: 'built in' },
+                { val: 100, suffix: '% private', label: 'your data, yours only' },
+                { val: 0, suffix: ' ads. Ever.', label: 'no tracking either' },
               ].map((s) => (
                 <div key={s.label}>
                   <p className="text-heading text-xl font-bold font-lora">
@@ -1241,10 +1241,10 @@ export default function Home() {
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
             className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
             {[
-              { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>, text: '10,000+ check-ins logged' },
-              { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>, text: '4.8 average rating' },
-              { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>, text: 'Used in 40+ countries' },
+              { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>, text: 'Free to download on iPhone' },
+              { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>, text: '100% private — no ads, ever' },
               { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>, text: 'Evidence-based CBT techniques' },
+              { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>, text: 'Built for iOS — launching soon' },
             ].map((item, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
                 className="flex items-center gap-2 text-muted text-sm">
@@ -1343,12 +1343,12 @@ export default function Home() {
             </motion.div>
             <motion.div variants={staggerContainer(0.08)} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
               {[
-                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>, title: 'AI Check-in', desc: 'Describe what you\'re feeling. Anchor converses with you to understand, then gives calm, honest perspective — not just validation.' },
-                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>, title: 'Symptom Reality Check', desc: 'CBT-based tool that gently challenges catastrophic thinking about physical sensations.' },
-                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M2 9 C3.5 6, 5 6, 6.5 9 C8 12, 9.5 12, 11 9 C12.5 6, 14 6, 15.5 9 C17 12, 18.5 12, 20 9"/><path d="M2 16 C3.5 13, 5 13, 6.5 16 C8 19, 9.5 19, 11 16 C12.5 13, 14 13, 15.5 16 C17 19, 18.5 19, 20 16"/></svg>, title: 'Grounding Exercises', desc: 'Box breathing, physiological sigh, 5-4-3-2-1, body scan, safe place — guided, tap-through, no typing required.' },
-                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>, title: 'Worry Journal', desc: 'Structured journalling prompts designed to externalise and challenge anxious thoughts.' },
-                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>, title: 'Mood Trends', desc: 'See your anxiety patterns visualised over time to understand what\'s driving your symptoms.' },
-                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>, title: 'Daily Reminders', desc: 'Customisable gentle nudges to keep your check-in habit consistent without pressure.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>, title: 'AI Check-in', desc: 'Describe what you\'re feeling or what you just read. Anchor converses with you, then gives calm evidence-based perspective — not alarm, not dismissal.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M2 9 C3.5 6, 5 6, 6.5 9 C8 12, 9.5 12, 11 9 C12.5 6, 14 6, 15.5 9 C17 12, 18.5 12, 20 9"/><path d="M2 16 C3.5 13, 5 13, 6.5 16 C8 19, 9.5 19, 11 16 C12.5 13, 14 13, 15.5 16 C17 19, 18.5 19, 20 16"/></svg>, title: '6 Grounding Exercises', desc: 'Box breathing, physiological sigh, 5-4-3-2-1, body scan, worry postponement, cognitive defusion — guided and tap-through, no audio required.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>, title: 'Daily Journal', desc: 'Structured prompts and free writing with mood tracking. Private entries, only ever visible to you.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>, title: 'Mood Tracking', desc: 'Log how you\'re feeling each day. Anchor tracks your streak and shows your mood history over time.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>, title: 'Weekly PHQ-4 Check-in', desc: 'A validated 4-question screening for anxiety and depression. Takes 30 seconds, shows up once a week.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>, title: 'Learn Library', desc: 'Six evidence-based lessons covering the most common health anxiety spirals — cardiac, neurological, respiratory, digestive, skin, and general.' },
               ].map((f) => (
                 <FeatureCard key={f.title} icon={f.icon} title={f.title} description={f.desc} />
               ))}
@@ -1363,12 +1363,12 @@ export default function Home() {
             </motion.div>
             <motion.div variants={staggerContainer(0.08)} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {[
-                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>, title: 'Deep Check-in Insights', desc: 'After every check-in, get a full AI analysis: what\'s likely going on, what would actually matter, and a triage level.' },
-                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><path d="M3 3l18 18"/></svg>, title: 'Full Pattern Analysis', desc: 'Visualise your anxiety across weeks and months — see your real triggers, trends, and what\'s actually changing.' },
-                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>, title: 'GP Health Summary', desc: 'Auto-generated summary of your anxiety history, ready to share with a doctor or therapist at your next appointment.' },
-                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>, title: 'Monthly Letter from Anchor', desc: 'A personalised monthly reflection on your progress, patterns, and what to focus on next — written just for you.' },
-                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>, title: 'Behavioural Experiments', desc: 'Log worry predictions and track what actually happens — the most powerful way to dismantle health anxiety over time.' },
-                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>, title: 'PHQ-4 Mood Screening', desc: 'Regular validated clinical screening to track anxiety and depression levels, so you can see real progress over time.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>, title: 'Complete Check-in History', desc: 'Every check-in saved and searchable. Free users see their last 3 — Plus keeps every single one.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>, title: 'Full Pattern Analysis', desc: 'See your anxiety broken down by trigger category, time of day, and day of week. Understand what\'s actually driving your spikes.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>, title: 'Behavioural Experiment Tracker', desc: 'Log a worry, predict what will happen, then record the outcome. The most evidence-backed way to break the anxiety cycle.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>, title: 'GP Health Summary', desc: 'Auto-generated summary of your check-in history. Print or share it before any GP or therapy appointment.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>, title: 'Monthly Letter from Anchor', desc: 'A personalised monthly reflection written from your own data — your progress, patterns, and what to focus on next.' },
+                { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>, title: 'Early Access to New Features', desc: 'Plus members get new features first, before they roll out to the free tier.' },
               ].map((f) => (
                 <FeatureCard key={f.title} icon={f.icon} title={f.title} description={f.desc} isPlus />
               ))}
@@ -1426,11 +1426,11 @@ export default function Home() {
 
             <motion.div variants={staggerContainer(0.1)} className="grid md:grid-cols-3 gap-6 items-start">
               <PricingCard tier="Free" price="Free" description="A solid toolkit for understanding and managing health anxiety, at no cost."
-                features={['Daily check-ins', 'Symptom reality check', 'Guided breathing exercises', 'Basic worry journal', '30-day mood history', 'Daily reminders']}
+                features={['Unlimited AI check-ins', '6 grounding exercises', 'Daily journal & mood tracking', 'Weekly PHQ-4 screening', 'Last 3 check-ins saved', 'Learn library (6 lessons)']}
                 cta="Coming to the App Store" isAnnual={isAnnual} />
               <PricingCard tier="Anchor Plus" price="A$12.99" annualPrice="A$6.67"
-                description="Deep insights after every check-in, full pattern analysis, and tools for lasting change."
-                features={['Everything in Free', 'Deep check-in insights', 'Full pattern analysis', 'GP health summary', 'Monthly letter from Anchor', 'Behavioural experiments', 'PHQ-4 mood screening', 'Priority support']}
+                description="Complete check-in history, full pattern analysis, and tools for lasting change."
+                features={['Everything in Free', 'Complete check-in history', 'Full patterns & trigger analysis', 'Behavioural experiment tracker', 'GP health summary', 'Monthly letter from Anchor', 'Early access to new features']}
                 cta="Coming to the App Store" highlighted isAnnual={isAnnual} />
               <PricingCard tier="Clinical" price="Custom"
                 description="For mental health clinics and practices who want to recommend Anchor to clients."

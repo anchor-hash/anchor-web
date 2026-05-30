@@ -18,10 +18,15 @@ export const metadata: Metadata = {
   title: 'Anchor — Your mind is racing. Let\'s slow it down.',
   description: 'The calm, evidence-based companion for health anxiety. Track symptoms, challenge spirals, and build resilience — free on iPhone.',
   keywords: ['health anxiety', 'anxiety app', 'mental health', 'CBT', 'symptom checker', 'mindfulness'],
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
   openGraph: {
     title: 'Anchor — Health Anxiety Companion',
     description: 'The calm, evidence-based companion for health anxiety.',
     type: 'website',
+    images: [{ url: '/logo.png', width: 1024, height: 1024, alt: 'Anchor' }],
   },
 }
 

@@ -412,55 +412,146 @@ function ScreenGrounding() {
   )
 }
 
+// ─── Phone Screen: Home ───────────────────────────────────────────────────────
+function ScreenHome() {
+  return (
+    <div className="h-full flex flex-col gap-2 overflow-hidden">
+      {/* Streak card */}
+      <div className="mx-1 rounded-2xl p-3" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
+        <p className="text-[7px] uppercase tracking-widest mb-1" style={{ color: '#5a8ea8' }}>Days grounded</p>
+        <div className="flex items-start justify-between mb-1">
+          <span className="text-[32px] font-bold leading-none" style={{ color: '#4ecdc4', fontFamily: 'Georgia, serif' }}>11</span>
+          {/* Sparkline */}
+          <svg width="90" height="22" viewBox="0 0 90 22" fill="none" className="mt-1">
+            <path d="M0 14 Q12 8 22 12 Q32 16 42 10 Q52 4 62 9 Q72 14 82 7 Q86 5 90 8" stroke="#4ecdc4" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.7"/>
+          </svg>
+        </div>
+        <p className="text-[8px] mb-0.5" style={{ color: '#7ab8d0' }}>2 weeks · Tue, 2 Jun</p>
+        <p className="text-[8px] mb-2" style={{ color: '#5a8ea8' }}>The hardest part starts becoming the past.</p>
+        <p className="text-[11px] font-semibold mb-2" style={{ color: '#e8f4f8', fontFamily: 'Georgia, serif' }}>One week of showing up. It shows.</p>
+        <div className="h-px mb-2" style={{ background: '#1e3a5f' }} />
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-1.5">
+            <div className="w-2 h-2 rounded-full" style={{ background: '#4ecdc4' }} />
+            <span className="text-[8px]" style={{ color: '#9ec8dc' }}>Today: Good</span>
+          </div>
+          <span className="text-[8px]" style={{ color: '#3a6070' }}>Edit mood</span>
+        </div>
+      </div>
+
+      {/* Quick actions row */}
+      <div className="mx-1 flex gap-2">
+        <div className="flex-1 rounded-xl flex items-center justify-center py-2.5 gap-1" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
+          <span className="text-[8.5px] uppercase tracking-widest" style={{ color: '#5a8ea8' }}>Breathe</span>
+          <span style={{ color: '#3a6070', fontSize: 9 }}>+</span>
+        </div>
+        <div className="flex-1 rounded-xl flex items-center justify-center py-2.5 gap-1" style={{ background: '#0f2a12', border: '1px solid #1e4a1e' }}>
+          <span className="text-[8.5px] uppercase tracking-widest font-semibold" style={{ color: '#4ecdc4' }}>Journal</span>
+          <span style={{ color: '#4ecdc4', fontSize: 9 }}>✓</span>
+        </div>
+      </div>
+
+      {/* Insight nudge */}
+      <div className="mx-1 rounded-xl p-2.5 flex items-center gap-2" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
+        <p className="text-[8.5px] leading-tight flex-1" style={{ color: '#9ec8dc' }}>You&apos;re steady and you&apos;ve written today. See how this fits into your bigger picture.</p>
+        <div className="rounded-full px-2 py-1 flex-shrink-0" style={{ background: '#4ecdc4' }}>
+          <span className="text-[7.5px] font-semibold" style={{ color: '#0a1628' }}>See patterns</span>
+        </div>
+      </div>
+
+      {/* 2×2 action grid */}
+      <div className="mx-1 grid grid-cols-2 gap-1.5">
+        {[
+          { icon: <svg width="14" height="14" viewBox="0 0 96 96" fill="none" stroke="#4ecdc4" strokeWidth="7" strokeLinecap="round"><path d="M466 370 C430 350,404 308,404 262 C404 185,452 138,512 132 C572 138,620 185,620 262 C620 308,589 350,555 370" transform="scale(0.15) translate(-340,-80)"/><line x1="8" y1="7" x2="8" y2="13"/><line x1="5" y1="9.5" x2="11" y2="9.5"/><path d="M5 13 Q5 15 8 15 Q11 15 11 13" /></svg>, label: 'Drop anchor', sub: 'Calm perspective on a health worry.' },
+          { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2" strokeLinecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>, label: 'Journal', sub: 'Done today ✓' },
+          { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2" strokeLinecap="round"><path d="M2 5 Q5 1 8 5 Q11 9 14 5 Q17 1 20 5"/><path d="M2 12 Q5 8 8 12 Q11 16 14 12 Q17 8 20 12"/></svg>, label: 'Ground me', sub: 'A short exercise for right now.' },
+          { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2" strokeLinecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>, label: 'Learn', sub: 'Why anxiety feels like this.' },
+        ].map(item => (
+          <div key={item.label} className="rounded-xl p-2.5" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
+            <div className="w-6 h-6 rounded-full flex items-center justify-center mb-1.5" style={{ background: 'rgba(78,205,196,0.1)', border: '1px solid rgba(78,205,196,0.15)' }}>
+              {item.icon}
+            </div>
+            <p className="text-[9px] font-semibold mb-0.5" style={{ color: '#e8f4f8' }}>{item.label}</p>
+            <p className="text-[7.5px] leading-tight" style={{ color: '#5a8ea8' }}>{item.sub}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 // ─── Phone Screen: Journal ────────────────────────────────────────────────────
 function ScreenJournal() {
-  const entries = [
-    { date: 'Today', time: '9:14 am', mood: 5, preview: 'Woke up feeling tense again. Read about carbon monoxide poisoning and couldn\'t stop thinking about whether our detector was…' },
-    { date: 'Yesterday', time: '8:02 pm', mood: 3, preview: 'Had a really good afternoon. Went for a walk and didn\'t check my phone once. Chest felt fine the whole time.' },
-    { date: 'Mon 26 May', time: '11:33 am', mood: 4, preview: 'Noticed I\'ve been catastrophising more in the mornings. The pattern is so obvious now that I can see it in the chart.' },
-  ]
-  const moodColors: Record<number, string> = { 1: '#f87171', 2: '#fb923c', 3: '#facc15', 4: '#86efac', 5: '#4ecdc4' }
+  const moods = ['Rough', 'Low', 'Okay', 'Good', 'Great']
   return (
     <div className="h-full flex flex-col gap-2 overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between pt-1 px-1">
-        <div>
-          <p className="text-[14px] font-semibold" style={{ color: '#e8f4f8', fontFamily: 'Georgia, serif' }}>Journal</p>
-          <p className="text-[8px]" style={{ color: '#5a8ea8' }}>Private. Only visible to you.</p>
-        </div>
-        <div className="w-7 h-7 rounded-full flex items-center justify-center" style={{ background: 'rgba(78,205,196,0.15)', border: '1px solid rgba(78,205,196,0.3)' }}>
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2.5" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        </div>
-      </div>
-
-      {/* Mood prompt */}
-      <div className="mx-1 rounded-xl p-2.5" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-        <p className="text-[8px] uppercase tracking-widest mb-2" style={{ color: '#5a8ea8' }}>How are you feeling right now?</p>
-        <div className="flex justify-between">
-          {[1,2,3,4,5].map(n => (
-            <div key={n} className="flex flex-col items-center gap-1">
-              <div className="w-7 h-7 rounded-full flex items-center justify-center text-[11px]" style={{ background: n === 4 ? moodColors[n] + '30' : 'transparent', border: `1px solid ${n === 4 ? moodColors[n] : '#1e3a5f'}` }}>
-                {['😞','😟','😐','🙂','😊'][n-1]}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Recent entries */}
-      <div className="flex flex-col gap-1.5 overflow-hidden">
-        {entries.map((e) => (
-          <div key={e.date + e.time} className="mx-1 rounded-xl p-2.5" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-            <div className="flex items-center justify-between mb-1">
-              <div className="flex items-center gap-1.5">
-                <span className="text-[8px] font-medium" style={{ color: '#7ab8d0' }}>{e.date}</span>
-                <span className="text-[7px]" style={{ color: '#3a6070' }}>{e.time}</span>
-              </div>
-              <div className="w-3 h-3 rounded-full" style={{ background: moodColors[e.mood] }} />
-            </div>
-            <p className="text-[8px] leading-relaxed" style={{ color: '#5a8ea8' }}>{e.preview}</p>
+        <div className="flex items-center gap-2">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.svg" alt="" width={14} height={14} style={{ borderRadius: 3 }} />
           </div>
-        ))}
+          <span className="text-[13px] font-semibold" style={{ color: '#e8f4f8', fontFamily: 'Georgia, serif' }}>Journal</span>
+        </div>
+        <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: '#1e3a5f' }}>
+          <span className="text-[8px] font-bold" style={{ color: '#9ec8dc' }}>P</span>
+        </div>
+      </div>
+
+      {/* Today / Calendar toggle */}
+      <div className="mx-1 flex rounded-full p-0.5" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
+        <div className="flex-1 py-1.5 rounded-full text-center" style={{ background: '#4ecdc4' }}>
+          <span className="text-[8.5px] font-semibold" style={{ color: '#0a1628' }}>Today</span>
+        </div>
+        <div className="flex-1 py-1.5 rounded-full text-center">
+          <span className="text-[8.5px]" style={{ color: '#5a8ea8' }}>Calendar</span>
+        </div>
+      </div>
+
+      {/* Entry card — dark green tint matching app */}
+      <div className="mx-1 rounded-2xl p-3 flex flex-col gap-2.5" style={{ background: '#0a1f0d', border: '1px solid #1a3a1e' }}>
+        <div>
+          <p className="text-[7px] uppercase tracking-widest" style={{ color: '#4a8a5a' }}>Saturday</p>
+          <p className="text-[12px] font-semibold" style={{ color: '#e8f4f8' }}>30 May 2026</p>
+        </div>
+        <div className="h-px" style={{ background: '#1a3a1e' }} />
+
+        {/* Mood picker */}
+        <div>
+          <p className="text-[7px] uppercase tracking-widest mb-1.5" style={{ color: '#4a8a5a' }}>How are you today?</p>
+          <div className="flex gap-1">
+            {moods.map(m => (
+              <div key={m} className="flex-1 rounded-lg py-1.5 flex flex-col items-center gap-0.5"
+                style={{ background: m === 'Good' ? 'rgba(78,205,196,0.12)' : 'transparent', border: `1px solid ${m === 'Good' ? '#4ecdc4' : '#1a3a1e'}` }}>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={m === 'Good' ? '#4ecdc4' : '#3a6a4a'} strokeWidth="2" strokeLinecap="round">
+                  {m === 'Rough' ? <><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></> :
+                   m === 'Low'   ? <><circle cx="12" cy="12" r="10"/><line x1="8" y1="15" x2="16" y2="15"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></> :
+                   m === 'Okay'  ? <><circle cx="12" cy="12" r="10"/><line x1="8" y1="15" x2="16" y2="15"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></> :
+                   m === 'Good'  ? <><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></> :
+                                   <><circle cx="12" cy="12" r="10"/><path d="M8 13s1.5 3 4 3 4-3 4-3"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></>}
+                </svg>
+                <span className="text-[6.5px]" style={{ color: m === 'Good' ? '#4ecdc4' : '#3a6a4a' }}>{m}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Prompts */}
+        <div className="flex flex-col gap-1">
+          {['What made today feel good?', 'What am I proud of lately?', 'What do I want to remember about this period?'].map(p => (
+            <p key={p} className="text-[8.5px]" style={{ color: '#4ecdc4', opacity: 0.8 }}>{p}</p>
+          ))}
+          <p className="text-[8.5px]" style={{ color: '#2a5a3a' }}>Write freely…</p>
+        </div>
+
+        <div className="h-px" style={{ background: '#1a3a1e' }} />
+
+        {/* Save button */}
+        <div className="rounded-full py-2 flex items-center justify-center" style={{ background: '#4ecdc4' }}>
+          <span className="text-[9px] font-semibold" style={{ color: '#0a1628' }}>Update today&apos;s entry</span>
+        </div>
+        <p className="text-center text-[7px]" style={{ color: '#2a5a3a' }}>Saves automatically as you write</p>
       </div>
     </div>
   )
@@ -470,10 +561,11 @@ function ScreenJournal() {
 function PhoneMockup() {
   const [activeScreen, setActiveScreen] = useState(0)
   const screens = [
+    { label: 'Home',     component: <ScreenHome /> },
+    { label: 'Journal',  component: <ScreenJournal /> },
     { label: 'Check in', component: <ScreenCheckin /> },
+    { label: 'Ground',   component: <ScreenGrounding /> },
     { label: 'Patterns', component: <ScreenInsights /> },
-    { label: 'Ground', component: <ScreenGrounding /> },
-    { label: 'Journal', component: <ScreenJournal /> },
   ]
 
   useEffect(() => {
@@ -549,11 +641,11 @@ function PhoneMockup() {
               style={{ borderColor: 'rgba(255,255,255,0.06)' }}
             >
               {[
-                { label: 'Home', active: false, icon: <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> },
-                { label: 'Journal', active: activeScreen === 3, icon: <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4z"/></svg> },
-                { label: 'Check in', active: activeScreen === 0, icon: <svg width="11" height="11" viewBox="0 0 96 96" fill="none" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"><circle cx="48" cy="30" r="10" fill="none"/><line x1="48" y1="40" x2="48" y2="75"/><line x1="30" y1="55" x2="66" y2="55"/><path d="M30 75 C30 82 38 86 48 86 C58 86 66 82 66 75"/></svg> },
-                { label: 'Ground', active: activeScreen === 2, icon: <svg width="11" height="11" viewBox="0 0 24 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M2 5 Q5 1 8 5 Q11 9 14 5 Q17 1 20 5"/><path d="M2 12 Q5 8 8 12 Q11 16 14 12 Q17 8 20 12" opacity="0.5"/></svg> },
-                { label: 'Patterns', active: activeScreen === 1, icon: <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> },
+                { label: 'Home',     active: activeScreen === 0, icon: <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> },
+                { label: 'Journal',  active: activeScreen === 1, icon: <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4z"/></svg> },
+                { label: 'Check in', active: activeScreen === 2, icon: <svg width="11" height="11" viewBox="0 0 96 96" fill="none" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"><circle cx="48" cy="30" r="10" fill="none"/><line x1="48" y1="40" x2="48" y2="75"/><line x1="30" y1="55" x2="66" y2="55"/><path d="M30 75 C30 82 38 86 48 86 C58 86 66 82 66 75"/></svg> },
+                { label: 'Ground',   active: activeScreen === 3, icon: <svg width="11" height="11" viewBox="0 0 24 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M2 5 Q5 1 8 5 Q11 9 14 5 Q17 1 20 5"/><path d="M2 12 Q5 8 8 12 Q11 16 14 12 Q17 8 20 12" opacity="0.5"/></svg> },
+                { label: 'More',     active: activeScreen === 4, icon: <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="5" cy="12" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="19" cy="12" r="1" fill="currentColor"/></svg> },
               ].map((item) => (
                 <div key={item.label} className="flex flex-col items-center gap-0.5">
                   <span style={{ color: item.active ? '#4ecdc4' : '#5a8ea8' }}>{item.icon}</span>

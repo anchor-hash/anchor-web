@@ -1075,8 +1075,7 @@ export default function Home() {
       category: 'Account & Billing',
       icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>,
       items: [
-        { q: 'How do I cancel my subscription?', a: 'Open the App Store → tap your profile picture → Subscriptions → find Anchor and tap Cancel Subscription.' },
-        { q: 'Can I get a refund?', a: 'Refunds are handled directly by Apple through the App Store. Email us at support@getanchorhealth.app if you have any trouble and we\'ll do our best to help.' },
+        { q: 'How do I cancel my subscription?', a: 'Open the App Store → tap your profile picture → Subscriptions → find Anchor and tap Cancel Subscription. You\'ll keep Plus until the end of your current billing period.' },
         { q: 'Is my data backed up?', a: 'Yes. Everything syncs securely to your Anchor account so your history is always safe, even if you change devices.' },
       ],
     },

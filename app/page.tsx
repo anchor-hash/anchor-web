@@ -255,7 +255,7 @@ function ScreenCheckin() {
           ))}
           {/* Mini anchor logo */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="Anchor" width={40} height={40} className="relative z-10 rounded-xl" style={{ display: 'block' }} />
+          <img src="/logo.svg" alt="Anchor" width={40} height={40} className="relative z-10 rounded-xl" style={{ display: 'block' }} />
         </div>
         <div className="text-center">
           <p className="text-[13px] font-semibold" style={{ color: '#e8f4f8', fontFamily: 'Georgia, serif' }}>You're safe here.</p>
@@ -918,7 +918,7 @@ export default function Home() {
           {/* Logo */}
           <motion.a href="#" initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }} className="flex items-center gap-2.5">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.png" alt="Anchor" width={32} height={32} className="rounded-xl" style={{ display: 'block' }} />
+            <img src="/logo.svg" alt="Anchor" width={32} height={32} className="rounded-xl" style={{ display: 'block' }} />
             <span className="font-lora text-lg font-bold text-heading">Anchor</span>
           </motion.a>
 

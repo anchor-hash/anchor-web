@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Background -->
+  <rect width="1024" height="1024" rx="220" fill="#0a1628"/>
+
+  <!-- Ripple rings -->
+  <circle cx="512" cy="510" r="335" fill="none" stroke="#162840" stroke-width="3.5"/>
+  <circle cx="512" cy="510" r="250" fill="none" stroke="#162840" stroke-width="2.5"/>
+  <circle cx="512" cy="510" r="165" fill="none" stroke="#1a3050" stroke-width="2"/>
+
+  <!-- Teardrop top: two cubic bezier halves meeting at sharp point at top (512, 118) -->
+  <!-- Left half: bottom-left open end → sweeps up → sharp point at top -->
+  <!-- Right half: sharp point at top → sweeps down → bottom-right open end -->
+  <path d="M 462 385
+    C 375 368, 372 178, 512 118
+    C 652 178, 649 368, 562 385"
+    fill="none" stroke="#4ecdc4" stroke-width="46" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Vertical stem -->
+  <line x1="512" y1="385" x2="512" y2="722" stroke="#4ecdc4" stroke-width="46" stroke-linecap="round"/>
+
+  <!-- Horizontal crossbar -->
+  <line x1="346" y1="540" x2="678" y2="540" stroke="#4ecdc4" stroke-width="46" stroke-linecap="round"/>
+
+  <!-- U-curve at bottom -->
+  <path d="M 362 722 Q 362 840 512 840 Q 662 840 662 722"
+    fill="none" stroke="#4ecdc4" stroke-width="46" stroke-linecap="round"/>
+
+  <!-- Water waves -->
+  <path d="M 262 895 Q 332 863 402 895 Q 472 927 542 895 Q 612 863 682 895 Q 742 920 790 900"
+    fill="none" stroke="#1e3a5f" stroke-width="18" stroke-linecap="round"/>
+  <path d="M 300 940 Q 370 908 440 940 Q 510 972 580 940 Q 650 908 710 940"
+    fill="none" stroke="#162840" stroke-width="13" stroke-linecap="round"/>
+</svg>

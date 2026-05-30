@@ -232,67 +232,66 @@ function ComingSoonBadge({ large = false }: { large?: boolean }) {
 // ─── Phone Screen: Check-in Input ────────────────────────────────────────────
 function ScreenCheckin() {
   return (
-    <div className="h-full flex flex-col gap-2 overflow-hidden">
-      {/* Top bar — Chats pill + avatar */}
-      <div className="flex items-center justify-between pt-1 px-1">
+    <div className="h-full flex flex-col overflow-hidden" style={{ gap: 0 }}>
+      {/* Top bar */}
+      <div className="flex items-center justify-between px-2 pt-2 pb-3">
         <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
           <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#9ec8dc" strokeWidth="2.5" strokeLinecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-          <span className="text-[9px]" style={{ color: '#9ec8dc' }}>Chats</span>
+          <span style={{ fontSize: 9, color: '#9ec8dc' }}>Chats</span>
         </div>
-        <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: '#1e3a5f' }}>
-          <span className="text-[8px] font-bold" style={{ color: '#9ec8dc' }}>P</span>
+        <div className="w-7 h-7 rounded-full flex items-center justify-center" style={{ background: '#1e3a5f' }}>
+          <span style={{ fontSize: 9, fontWeight: 700, color: '#9ec8dc' }}>P</span>
         </div>
       </div>
 
-      {/* Logo with ripple rings */}
-      <div className="flex flex-col items-center gap-2 py-1">
-        <div className="relative flex items-center justify-center" style={{ width: 64, height: 64 }}>
-          <div className="absolute rounded-full" style={{ width: 64, height: 64, background: 'rgba(14,30,58,0.9)', border: '1px solid rgba(78,205,196,0.12)' }} />
-          <div className="absolute rounded-full" style={{ width: 50, height: 50, background: 'rgba(14,30,58,0.9)', border: '1px solid rgba(78,205,196,0.1)' }} />
+      {/* Logo + headline — generous vertical space matches screenshot */}
+      <div className="flex flex-col items-center" style={{ paddingTop: 8, paddingBottom: 20 }}>
+        {/* Ripple rings */}
+        <div className="relative flex items-center justify-center" style={{ width: 78, height: 78, marginBottom: 14 }}>
+          <div className="absolute rounded-full" style={{ width: 78, height: 78, border: '1px solid rgba(78,205,196,0.1)' }} />
+          <div className="absolute rounded-full" style={{ width: 60, height: 60, border: '1px solid rgba(78,205,196,0.12)' }} />
+          <div className="absolute rounded-full" style={{ width: 44, height: 44, border: '1px solid rgba(78,205,196,0.15)' }} />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.svg" alt="Anchor" width={36} height={36} className="relative z-10 rounded-lg" style={{ display: 'block' }} />
+          <img src="/logo.svg" alt="Anchor" width={32} height={32} className="relative z-10 rounded-lg" style={{ display: 'block' }} />
         </div>
-        <div className="text-center">
-          <p className="text-[14px] font-semibold" style={{ color: '#e8f4f8', fontFamily: 'Georgia, serif' }}>You&apos;re safe here.</p>
-          <p className="text-[9px] leading-tight mt-0.5 max-w-[170px] mx-auto" style={{ color: '#5a8ea8' }}>Whatever you just read or felt — let&apos;s look at it together, calmly, before the worry sets in.</p>
-        </div>
+        <p style={{ fontSize: 18, color: '#e8f4f8', fontFamily: 'Georgia, serif', fontWeight: 600, marginBottom: 6, textAlign: 'center' }}>You&apos;re safe here.</p>
+        <p style={{ fontSize: 10, color: '#5a8ea8', lineHeight: 1.5, textAlign: 'center', maxWidth: 170 }}>Whatever you just read or felt — let&apos;s look at it together, calmly.</p>
       </div>
 
       {/* Input card */}
-      <div className="mx-1 rounded-2xl flex flex-col gap-2" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-        <div className="px-3 pt-3">
-          <p className="text-[7.5px] uppercase tracking-widest mb-1.5" style={{ color: '#5a8ea8' }}>What&apos;s on your mind?</p>
-          <p className="text-[9.5px] leading-relaxed pb-2" style={{ color: '#4a6a80' }}>Describe what you&apos;re feeling, or what you just read…</p>
+      <div className="mx-2 rounded-2xl" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
+        <div className="px-3 pt-3 pb-2">
+          <p style={{ fontSize: 7.5, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#5a8ea8', marginBottom: 6 }}>What&apos;s on your mind?</p>
+          <p style={{ fontSize: 10, color: '#3a6070', lineHeight: 1.5, paddingBottom: 4 }}>Describe what you&apos;re feeling, or what you just read…</p>
         </div>
-        <div className="h-px mx-3" style={{ background: '#1e3a5f' }} />
-        {/* Trust count */}
-        <div className="flex items-center gap-1.5 px-3 py-1.5 mx-0 rounded-lg" style={{ background: 'rgba(78,205,196,0.06)', margin: '0 8px' }}>
-          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span className="text-[8px]" style={{ color: '#7ab8d0' }}><span style={{ color: '#4ecdc4', fontWeight: 600 }}>22 worries</span> logged — Anchor knows your patterns</span>
+        <div style={{ height: 1, background: '#1e3a5f', margin: '0 12px' }} />
+        {/* 22 worries badge */}
+        <div className="flex items-center gap-1.5 mx-3 my-2 rounded-lg px-2 py-1.5" style={{ background: 'rgba(78,205,196,0.07)' }}>
+          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style={{ fontSize: 8, color: '#7ab8d0' }}><span style={{ color: '#4ecdc4', fontWeight: 600 }}>22 worries</span> logged</span>
         </div>
-        <div className="h-px mx-3" style={{ background: '#1e3a5f' }} />
-        {/* Toggle + button row */}
-        <div className="flex items-center justify-between px-3 pb-3">
+        <div style={{ height: 1, background: '#1e3a5f', margin: '0 12px' }} />
+        {/* Toggle + CTA */}
+        <div className="flex items-center justify-between px-3 py-2.5">
           <div className="flex items-center gap-1.5">
-            <div className="w-7 h-4 rounded-full flex items-center px-0.5" style={{ background: '#1e3a5f' }}>
-              <div className="w-3 h-3 rounded-full" style={{ background: '#e8f4f8' }} />
+            <div className="rounded-full flex items-center px-0.5" style={{ width: 26, height: 14, background: '#1e3a5f' }}>
+              <div className="rounded-full" style={{ width: 11, height: 11, background: '#e8f4f8' }} />
             </div>
-            <span className="text-[8px]" style={{ color: '#5a8ea8' }}>I&apos;ve had this worry before</span>
+            <span style={{ fontSize: 7.5, color: '#5a8ea8' }}>Had this before</span>
           </div>
-          <div className="flex items-center gap-1 rounded-full px-3 py-1.5" style={{ background: 'rgba(78,205,196,0.2)', border: '1px solid rgba(78,205,196,0.3)' }}>
-            <span className="text-[8.5px] font-semibold" style={{ color: '#e8f4f8' }}>Drop anchor</span>
-            <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#e8f4f8" strokeWidth="2.5" strokeLinecap="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+          <div className="flex items-center gap-1 rounded-full px-3 py-2" style={{ background: 'rgba(78,205,196,0.18)', border: '1px solid rgba(78,205,196,0.35)' }}>
+            <span style={{ fontSize: 9, fontWeight: 700, color: '#e8f4f8' }}>Drop anchor ↑</span>
           </div>
         </div>
       </div>
 
       {/* Trust bar */}
-      <div className="flex items-center justify-center gap-3 pb-1">
-        <span className="text-[7.5px]" style={{ color: '#3a6070' }}>🔒 Private</span>
-        <span style={{ color: '#1e3a5f', fontSize: 8 }}>|</span>
-        <span className="text-[7.5px]" style={{ color: '#3a6070' }}>✏️ Evidence-based</span>
-        <span style={{ color: '#1e3a5f', fontSize: 8 }}>|</span>
-        <span className="text-[7.5px]" style={{ color: '#3a6070' }}>♡ Non-judgmental</span>
+      <div className="flex items-center justify-center gap-2 pt-3">
+        <span style={{ fontSize: 8, color: '#2a4a5a' }}>🔒 Private</span>
+        <span style={{ color: '#1e3a5f' }}>·</span>
+        <span style={{ fontSize: 8, color: '#2a4a5a' }}>Evidence-based</span>
+        <span style={{ color: '#1e3a5f' }}>·</span>
+        <span style={{ fontSize: 8, color: '#2a4a5a' }}>Non-judgmental</span>
       </div>
     </div>
   )
@@ -414,67 +413,78 @@ function ScreenGrounding() {
 
 // ─── Phone Screen: Home ───────────────────────────────────────────────────────
 function ScreenHome() {
+  const days = [4, 6, 5, 7, 4, 6, 8, 5, 7, 9, 8, 10, 9, 11]
+  const maxD = 12
   return (
-    <div className="h-full flex flex-col gap-2 overflow-hidden">
-      {/* Streak card */}
-      <div className="mx-1 rounded-2xl p-3" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-        <p className="text-[7px] uppercase tracking-widest mb-1" style={{ color: '#5a8ea8' }}>Days grounded</p>
-        <div className="flex items-start justify-between mb-1">
-          <span className="text-[32px] font-bold leading-none" style={{ color: '#4ecdc4', fontFamily: 'Georgia, serif' }}>11</span>
-          {/* Sparkline */}
-          <svg width="90" height="22" viewBox="0 0 90 22" fill="none" className="mt-1">
-            <path d="M0 14 Q12 8 22 12 Q32 16 42 10 Q52 4 62 9 Q72 14 82 7 Q86 5 90 8" stroke="#4ecdc4" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.7"/>
-          </svg>
+    <div className="h-full flex flex-col overflow-hidden" style={{ gap: 0 }}>
+      {/* Top bar */}
+      <div className="flex items-center justify-between px-2 pt-2 pb-3">
+        <div className="flex items-center gap-1.5">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.svg" alt="Anchor" width={20} height={20} className="rounded-md" />
+          <span style={{ fontSize: 11, fontWeight: 700, color: '#e8f4f8', fontFamily: 'Georgia, serif' }}>anchor</span>
         </div>
-        <p className="text-[8px] mb-0.5" style={{ color: '#7ab8d0' }}>2 weeks · Tue, 2 Jun</p>
-        <p className="text-[8px] mb-2" style={{ color: '#5a8ea8' }}>The hardest part starts becoming the past.</p>
-        <p className="text-[11px] font-semibold mb-2" style={{ color: '#e8f4f8', fontFamily: 'Georgia, serif' }}>One week of showing up. It shows.</p>
-        <div className="h-px mb-2" style={{ background: '#1e3a5f' }} />
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1.5">
-            <div className="w-2 h-2 rounded-full" style={{ background: '#4ecdc4' }} />
-            <span className="text-[8px]" style={{ color: '#9ec8dc' }}>Today: Good</span>
-          </div>
-          <span className="text-[8px]" style={{ color: '#3a6070' }}>Edit mood</span>
+        <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: '#1e3a5f' }}>
+          <span style={{ fontSize: 8, fontWeight: 700, color: '#9ec8dc' }}>P</span>
         </div>
       </div>
 
-      {/* Quick actions row */}
-      <div className="mx-1 flex gap-2">
-        <div className="flex-1 rounded-xl flex items-center justify-center py-2.5 gap-1" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-          <span className="text-[8.5px] uppercase tracking-widest" style={{ color: '#5a8ea8' }}>Breathe</span>
-          <span style={{ color: '#3a6070', fontSize: 9 }}>+</span>
+      {/* Streak hero card */}
+      <div className="mx-2 rounded-2xl p-3 mb-2" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
+        <p style={{ fontSize: 7, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#5a8ea8', marginBottom: 6 }}>Days grounded</p>
+        <div className="flex items-end justify-between">
+          <span style={{ fontSize: 38, fontWeight: 700, lineHeight: 1, color: '#4ecdc4', fontFamily: 'Georgia, serif' }}>11</span>
+          {/* Mini bar chart sparkline */}
+          <div className="flex items-end gap-px pb-1" style={{ height: 28 }}>
+            {days.map((v, i) => (
+              <div key={i} className="rounded-sm" style={{
+                width: 4,
+                height: `${(v / maxD) * 100}%`,
+                background: i === days.length - 1 ? '#4ecdc4' : `rgba(78,205,196,${0.15 + (v / maxD) * 0.35})`,
+              }} />
+            ))}
+          </div>
         </div>
-        <div className="flex-1 rounded-xl flex items-center justify-center py-2.5 gap-1" style={{ background: '#0f2a12', border: '1px solid #1e4a1e' }}>
-          <span className="text-[8.5px] uppercase tracking-widest font-semibold" style={{ color: '#4ecdc4' }}>Journal</span>
-          <span style={{ color: '#4ecdc4', fontSize: 9 }}>✓</span>
+        <p style={{ fontSize: 8, color: '#7ab8d0', marginTop: 4, marginBottom: 2 }}>2 weeks strong</p>
+        <p style={{ fontSize: 10, color: '#e8f4f8', fontFamily: 'Georgia, serif', lineHeight: 1.4 }}>One week of showing up. It shows.</p>
+        <div style={{ height: 1, background: '#1e3a5f', margin: '8px 0' }} />
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-1.5">
+            <div className="w-2 h-2 rounded-full" style={{ background: '#4ecdc4' }} />
+            <span style={{ fontSize: 7.5, color: '#9ec8dc' }}>Today: Good</span>
+          </div>
+          <span style={{ fontSize: 7.5, color: '#3a6070' }}>Edit mood</span>
+        </div>
+      </div>
+
+      {/* Primary action buttons — match real app exactly */}
+      <div className="mx-2 flex flex-col gap-2">
+        <div className="rounded-2xl flex items-center justify-between px-4 py-3" style={{ background: 'rgba(78,205,196,0.1)', border: '1px solid rgba(78,205,196,0.25)' }}>
+          <div>
+            <p style={{ fontSize: 10, fontWeight: 700, color: '#4ecdc4', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Breathe</p>
+            <p style={{ fontSize: 7.5, color: '#5a8ea8', marginTop: 1 }}>Box breathing · 2 min</p>
+          </div>
+          <div className="w-7 h-7 rounded-full flex items-center justify-center" style={{ background: 'rgba(78,205,196,0.15)' }}>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2.5" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </div>
+        <div className="rounded-2xl flex items-center justify-between px-4 py-3" style={{ background: '#0f2a12', border: '1px solid #1e4a1e' }}>
+          <div>
+            <p style={{ fontSize: 10, fontWeight: 700, color: '#4ecdc4', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Journal</p>
+            <p style={{ fontSize: 7.5, color: '#4a8a5a', marginTop: 1 }}>Done today ✓</p>
+          </div>
+          <div className="w-7 h-7 rounded-full flex items-center justify-center" style={{ background: 'rgba(78,205,196,0.08)' }}>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2.5" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
         </div>
       </div>
 
       {/* Insight nudge */}
-      <div className="mx-1 rounded-xl p-2.5 flex items-center gap-2" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-        <p className="text-[8.5px] leading-tight flex-1" style={{ color: '#9ec8dc' }}>You&apos;re steady and you&apos;ve written today. See how this fits into your bigger picture.</p>
+      <div className="mx-2 mt-2 rounded-xl px-3 py-2 flex items-center gap-2" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
+        <p style={{ fontSize: 8, lineHeight: 1.5, flex: 1, color: '#7ab8d0' }}>You&apos;re steady. See how this week fits your bigger picture.</p>
         <div className="rounded-full px-2 py-1 flex-shrink-0" style={{ background: '#4ecdc4' }}>
-          <span className="text-[7.5px] font-semibold" style={{ color: '#0a1628' }}>See patterns</span>
+          <span style={{ fontSize: 7, fontWeight: 700, color: '#0a1628' }}>Patterns →</span>
         </div>
-      </div>
-
-      {/* 2×2 action grid */}
-      <div className="mx-1 grid grid-cols-2 gap-1.5">
-        {[
-          { icon: <svg width="14" height="14" viewBox="0 0 96 96" fill="none" stroke="#4ecdc4" strokeWidth="7" strokeLinecap="round"><path d="M466 370 C430 350,404 308,404 262 C404 185,452 138,512 132 C572 138,620 185,620 262 C620 308,589 350,555 370" transform="scale(0.15) translate(-340,-80)"/><line x1="8" y1="7" x2="8" y2="13"/><line x1="5" y1="9.5" x2="11" y2="9.5"/><path d="M5 13 Q5 15 8 15 Q11 15 11 13" /></svg>, label: 'Drop anchor', sub: 'Calm perspective on a health worry.' },
-          { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2" strokeLinecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>, label: 'Journal', sub: 'Done today ✓' },
-          { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2" strokeLinecap="round"><path d="M2 5 Q5 1 8 5 Q11 9 14 5 Q17 1 20 5"/><path d="M2 12 Q5 8 8 12 Q11 16 14 12 Q17 8 20 12"/></svg>, label: 'Ground me', sub: 'A short exercise for right now.' },
-          { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2" strokeLinecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>, label: 'Learn', sub: 'Why anxiety feels like this.' },
-        ].map(item => (
-          <div key={item.label} className="rounded-xl p-2.5" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-            <div className="w-6 h-6 rounded-full flex items-center justify-center mb-1.5" style={{ background: 'rgba(78,205,196,0.1)', border: '1px solid rgba(78,205,196,0.15)' }}>
-              {item.icon}
-            </div>
-            <p className="text-[9px] font-semibold mb-0.5" style={{ color: '#e8f4f8' }}>{item.label}</p>
-            <p className="text-[7.5px] leading-tight" style={{ color: '#5a8ea8' }}>{item.sub}</p>
-          </div>
-        ))}
       </div>
     </div>
   )

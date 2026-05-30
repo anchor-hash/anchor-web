@@ -412,105 +412,100 @@ function ScreenGrounding() {
 }
 
 // ─── Phone Screen: Home ───────────────────────────────────────────────────────
+// Matches the native app's post-save state exactly:
+// streak hero (big number + wave + italic quote) → recommendation → quick-action 2×2
 function ScreenHome() {
-  const days = [4, 6, 5, 7, 4, 6, 8, 5, 7, 9, 8, 10, 9, 11]
-  const maxD = 12
+  const quickCards = [
+    {
+      icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>,
+      label: 'Drop anchor', sub: 'Calm perspective on a worry',
+    },
+    {
+      icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.8" strokeLinecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>,
+      label: 'Journal', sub: 'Done today ✓',
+    },
+    {
+      icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.8" strokeLinecap="round"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/></svg>,
+      label: 'Ground me', sub: 'A short exercise now',
+    },
+    {
+      icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.8" strokeLinecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>,
+      label: 'Learn', sub: 'Why anxiety feels like this',
+    },
+  ]
+
   return (
     <div className="h-full flex flex-col overflow-hidden" style={{ gap: 0 }}>
-      {/* Top bar */}
-      <div className="flex items-center justify-between px-2 pt-2 pb-3">
+      {/* Header row — matches app: logo + "Anchor" text + account avatar */}
+      <div className="flex items-center justify-between px-3 pt-2 pb-2">
         <div className="flex items-center gap-1.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.svg" alt="Anchor" width={20} height={20} className="rounded-md" />
-          <span style={{ fontSize: 11, fontWeight: 700, color: '#e8f4f8', fontFamily: 'Georgia, serif' }}>anchor</span>
+          <img src="/logo.svg" alt="Anchor" width={22} height={22} className="rounded-lg" />
+          <span style={{ fontSize: 14, color: '#e8f4f8', fontFamily: 'Georgia, serif' }}>Anchor</span>
         </div>
-        <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: '#1e3a5f' }}>
-          <span style={{ fontSize: 8, fontWeight: 700, color: '#9ec8dc' }}>P</span>
-        </div>
-      </div>
-
-      {/* Streak hero card */}
-      <div className="mx-2 rounded-2xl p-3 mb-2" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-        <p style={{ fontSize: 7, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#5a8ea8', marginBottom: 6 }}>Days grounded</p>
-        <div className="flex items-end justify-between">
-          <span style={{ fontSize: 38, fontWeight: 700, lineHeight: 1, color: '#4ecdc4', fontFamily: 'Georgia, serif' }}>11</span>
-          {/* Mini bar chart sparkline */}
-          <div className="flex items-end gap-px pb-1" style={{ height: 28 }}>
-            {days.map((v, i) => (
-              <div key={i} className="rounded-sm" style={{
-                width: 4,
-                height: `${(v / maxD) * 100}%`,
-                background: i === days.length - 1 ? '#4ecdc4' : `rgba(78,205,196,${0.15 + (v / maxD) * 0.35})`,
-              }} />
-            ))}
-          </div>
-        </div>
-        <p style={{ fontSize: 8, color: '#7ab8d0', marginTop: 4, marginBottom: 2 }}>2 weeks strong</p>
-        <p style={{ fontSize: 10, color: '#e8f4f8', fontFamily: 'Georgia, serif', lineHeight: 1.4 }}>One week of showing up. It shows.</p>
-        <div style={{ height: 1, background: '#1e3a5f', margin: '8px 0' }} />
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1.5">
-            <div className="w-2 h-2 rounded-full" style={{ background: '#4ecdc4' }} />
-            <span style={{ fontSize: 7.5, color: '#9ec8dc' }}>Today: Good</span>
-          </div>
-          <span style={{ fontSize: 7.5, color: '#3a6070' }}>Edit mood</span>
+        <div className="w-7 h-7 rounded-full flex items-center justify-center" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
+          <span style={{ fontSize: 9, fontWeight: 700, color: '#9ec8dc' }}>P</span>
         </div>
       </div>
 
-      {/* Primary action buttons — match real app exactly */}
-      <div className="mx-2 flex flex-col gap-2">
-        <div className="rounded-2xl flex items-center justify-between px-4 py-3" style={{ background: 'rgba(78,205,196,0.1)', border: '1px solid rgba(78,205,196,0.25)' }}>
-          <div>
-            <p style={{ fontSize: 10, fontWeight: 700, color: '#4ecdc4', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Breathe</p>
-            <p style={{ fontSize: 7.5, color: '#5a8ea8', marginTop: 1 }}>Box breathing · 2 min</p>
-          </div>
-          <div className="w-7 h-7 rounded-full flex items-center justify-center" style={{ background: 'rgba(78,205,196,0.15)' }}>
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2.5" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </div>
-        <div className="rounded-2xl flex items-center justify-between px-4 py-3" style={{ background: '#0f2a12', border: '1px solid #1e4a1e' }}>
-          <div>
-            <p style={{ fontSize: 10, fontWeight: 700, color: '#4ecdc4', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Journal</p>
-            <p style={{ fontSize: 7.5, color: '#4a8a5a', marginTop: 1 }}>Done today ✓</p>
-          </div>
-          <div className="w-7 h-7 rounded-full flex items-center justify-center" style={{ background: 'rgba(78,205,196,0.08)' }}>
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2.5" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </div>
-      </div>
-
-      {/* Mood check row — one checked drives desire to complete the rest */}
-      <div className="mx-2 mt-2 rounded-xl px-3 py-2.5" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-        <p style={{ fontSize: 7, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#5a8ea8', marginBottom: 6 }}>How are you feeling?</p>
-        <div className="flex items-center gap-1.5">
-          {[
-            { label: 'Grounded', checked: true  },
-            { label: 'Anxious',  checked: false },
-            { label: 'Tired',    checked: false },
-            { label: 'Hopeful',  checked: false },
-          ].map(item => (
-            <div key={item.label} className="flex items-center gap-1 rounded-full px-1.5 py-1" style={{
-              background: item.checked ? 'rgba(78,205,196,0.12)' : 'transparent',
-              border: `1px solid ${item.checked ? '#4ecdc4' : '#1e3a5f'}`,
-            }}>
-              <div className="w-2.5 h-2.5 rounded-full flex items-center justify-center flex-shrink-0" style={{
-                background: item.checked ? '#4ecdc4' : 'transparent',
-                border: `1px solid ${item.checked ? '#4ecdc4' : '#3a6070'}`,
-              }}>
-                {item.checked && <svg width="5" height="5" viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3" stroke="#0a1628" strokeWidth="1.8" fill="none" strokeLinecap="round"/></svg>}
-              </div>
-              <span style={{ fontSize: 7, color: item.checked ? '#4ecdc4' : '#5a8ea8' }}>{item.label}</span>
+      {/* ── Streak hero card — exact replica of native post-save state ── */}
+      <div className="mx-2 mb-2 rounded-2xl overflow-hidden" style={{ background: '#0d1f35', border: '1px solid rgba(78,205,196,0.2)' }}>
+        <div className="px-3 pt-3 pb-2">
+          {/* Top row: big number on left, "days grounded" + wave on right */}
+          <div className="flex items-end gap-2 mb-2">
+            <span style={{ fontSize: 54, lineHeight: 1, color: '#4ecdc4', fontFamily: 'Georgia, serif', fontWeight: 400 }}>11</span>
+            <div className="flex-1 pb-1">
+              <p style={{ fontSize: 7, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#5a8ea8', marginBottom: 5 }}>days grounded</p>
+              {/* Wave line — matches the animated wave in the real app */}
+              <svg width="100%" height="12" viewBox="0 0 110 12" preserveAspectRatio="none" fill="none">
+                <path d="M0 6 Q7 2 14 6 Q21 10 28 6 Q35 2 42 6 Q49 10 56 6 Q63 2 70 6 Q77 10 84 6 Q91 2 98 6 Q105 10 110 6"
+                  stroke="#4ecdc4" strokeWidth="1.4" fill="none" opacity="0.6" strokeLinecap="round"/>
+              </svg>
+              <p style={{ fontSize: 8, color: '#4ecdc4', marginTop: 4 }}>1 week · Tue, 2 Jun</p>
+              <p style={{ fontSize: 8, color: '#3a6070', fontStyle: 'italic', marginTop: 1 }}>The hardest part starts becoming the past.</p>
             </div>
-          ))}
+          </div>
+
+          {/* Italic streak message — the emotional core */}
+          <p style={{ fontSize: 12, color: '#9ec8dc', fontFamily: 'Georgia, serif', fontStyle: 'italic', lineHeight: 1.5, marginBottom: 12 }}>
+            One week of showing up. It shows.
+          </p>
+
+          {/* Divider + mood row */}
+          <div style={{ height: 1, background: '#1a3050', marginBottom: 10 }} />
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-1.5">
+              <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#1a6b60' }} />
+              <span style={{ fontSize: 10, color: '#5a8ea8', fontFamily: 'Georgia, serif' }}>Today: Good</span>
+            </div>
+            <span style={{ fontSize: 10, color: '#3a6070' }}>Edit mood</span>
+          </div>
         </div>
       </div>
 
-      {/* Insight nudge */}
-      <div className="mx-2 mt-2 rounded-xl px-3 py-2 flex items-center gap-2" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-        <p style={{ fontSize: 8, lineHeight: 1.5, flex: 1, color: '#7ab8d0' }}>You&apos;re steady. See how this week fits your bigger picture.</p>
-        <div className="rounded-full px-2 py-1 flex-shrink-0" style={{ background: '#4ecdc4' }}>
-          <span style={{ fontSize: 7, fontWeight: 700, color: '#0a1628' }}>Patterns →</span>
+      {/* Recommendation card — left teal border matches native app */}
+      <div className="mx-2 mb-2 rounded-2xl px-3 py-2.5 flex items-center gap-2"
+        style={{ background: '#061428', borderWidth: 1, borderStyle: 'solid', borderColor: 'rgba(78,205,196,0.3)', borderLeftWidth: 3, borderLeftColor: '#4ecdc4' }}>
+        <p style={{ fontSize: 9, lineHeight: 1.5, flex: 1, color: '#7ab8d0' }}>
+          You&apos;re steady and you&apos;ve written today. See how this fits into your bigger picture.
+        </p>
+        <div className="rounded-full px-2 py-1.5 flex-shrink-0" style={{ background: '#4ecdc4' }}>
+          <span style={{ fontSize: 8, fontWeight: 700, color: '#0a1628' }}>See patterns</span>
         </div>
+      </div>
+
+      {/* 2×2 Quick cards — matches native QuickCard grid */}
+      <div className="mx-2 grid grid-cols-2 gap-1.5">
+        {quickCards.map(card => (
+          <div key={card.label} className="rounded-2xl p-2.5" style={{ background: '#0d1f35', border: '1px solid #1e3a5f', minHeight: 72 }}>
+            <div className="w-7 h-7 rounded-full flex items-center justify-center mb-1.5"
+              style={{ background: '#061428', border: '1px solid #1e3a5f' }}>
+              {card.icon}
+            </div>
+            <p style={{ fontSize: 10, color: '#e8f4f8', fontFamily: 'Georgia, serif', marginBottom: 2 }}>{card.label}</p>
+            <p style={{ fontSize: 8, color: '#5a8ea8', lineHeight: 1.4 }}>{card.sub}</p>
+          </div>
+        ))}
       </div>
     </div>
   )

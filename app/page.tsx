@@ -448,49 +448,35 @@ function ScreenHome() {
         </div>
       </div>
 
-      {/* ── Streak hero card — exact replica of native post-save state ── */}
+      {/* ── Streak hero card ── */}
       <div className="mx-2 mb-2 rounded-2xl overflow-hidden" style={{ background: '#0d1f35', border: '1px solid rgba(78,205,196,0.2)' }}>
-        <div className="px-3 pt-3 pb-2">
-          {/* Top row: big number on left, "days grounded" + wave on right */}
-          <div className="flex items-end gap-2 mb-2">
-            <span style={{ fontSize: 54, lineHeight: 1, color: '#4ecdc4', fontFamily: 'Georgia, serif', fontWeight: 400 }}>11</span>
-            <div className="flex-1 pb-1">
-              <p style={{ fontSize: 7, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#5a8ea8', marginBottom: 5 }}>days grounded</p>
-              {/* Wave line — matches the animated wave in the real app */}
-              <svg width="100%" height="12" viewBox="0 0 110 12" preserveAspectRatio="none" fill="none">
-                <path d="M0 6 Q7 2 14 6 Q21 10 28 6 Q35 2 42 6 Q49 10 56 6 Q63 2 70 6 Q77 10 84 6 Q91 2 98 6 Q105 10 110 6"
-                  stroke="#4ecdc4" strokeWidth="1.4" fill="none" opacity="0.6" strokeLinecap="round"/>
-              </svg>
-              <p style={{ fontSize: 8, color: '#4ecdc4', marginTop: 4 }}>1 week · Tue, 2 Jun</p>
-              <p style={{ fontSize: 8, color: '#3a6070', fontStyle: 'italic', marginTop: 1 }}>The hardest part starts becoming the past.</p>
-            </div>
-          </div>
+        <div className="px-3 pt-3 pb-3">
+          {/* DAYS GROUNDED label + wave — centered, full width */}
+          <p style={{ fontSize: 7, textTransform: 'uppercase', letterSpacing: '0.16em', color: '#5a8ea8', textAlign: 'center', marginBottom: 5 }}>Days grounded</p>
+          <svg width="100%" height="12" viewBox="0 0 160 12" preserveAspectRatio="none" fill="none" style={{ marginBottom: 8 }}>
+            <path d="M0 6 Q10 2 20 6 Q30 10 40 6 Q50 2 60 6 Q70 10 80 6 Q90 2 100 6 Q110 10 120 6 Q130 2 140 6 Q150 10 160 6"
+              stroke="#4ecdc4" strokeWidth="1.5" fill="none" opacity="0.55" strokeLinecap="round"/>
+          </svg>
 
-          {/* Italic streak message — the emotional core */}
-          <p style={{ fontSize: 12, color: '#9ec8dc', fontFamily: 'Georgia, serif', fontStyle: 'italic', lineHeight: 1.5, marginBottom: 12 }}>
-            One week of showing up. It shows.
-          </p>
-
-          {/* Divider + mood row */}
-          <div style={{ height: 1, background: '#1a3050', marginBottom: 10 }} />
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#1a6b60' }} />
-              <span style={{ fontSize: 10, color: '#5a8ea8', fontFamily: 'Georgia, serif' }}>Today: Good</span>
+          {/* Big number centred + info to the right — matches screenshot exactly */}
+          <div className="flex items-center gap-3">
+            <span style={{ fontSize: 58, lineHeight: 1, color: '#4ecdc4', fontFamily: 'Georgia, serif', fontWeight: 400, minWidth: 54, textAlign: 'center' }}>11</span>
+            <div>
+              <p style={{ fontSize: 9, color: '#9ec8dc', marginBottom: 2 }}>1 week · Tue, 2 Jun</p>
+              <p style={{ fontSize: 9, color: '#5a8ea8', fontStyle: 'italic', lineHeight: 1.4 }}>The hardest part starts<br/>becoming the past.</p>
             </div>
-            <span style={{ fontSize: 10, color: '#3a6070' }}>Edit mood</span>
           </div>
         </div>
       </div>
 
-      {/* Recommendation card — left teal border matches native app */}
-      <div className="mx-2 mb-2 rounded-2xl px-3 py-2.5 flex items-center gap-2"
-        style={{ background: '#061428', borderWidth: 1, borderStyle: 'solid', borderColor: 'rgba(78,205,196,0.3)', borderLeftWidth: 3, borderLeftColor: '#4ecdc4' }}>
-        <p style={{ fontSize: 9, lineHeight: 1.5, flex: 1, color: '#7ab8d0' }}>
+      {/* Recommendation card — left teal accent border, large pill CTA */}
+      <div className="mx-2 mb-2 rounded-2xl px-3 py-3 flex items-center gap-2"
+        style={{ background: '#061428', border: '1px solid rgba(78,205,196,0.25)', borderLeftWidth: 3, borderLeftColor: '#4ecdc4' }}>
+        <p style={{ fontSize: 9.5, lineHeight: 1.5, flex: 1, color: '#7ab8d0' }}>
           You&apos;re steady and you&apos;ve written today. See how this fits into your bigger picture.
         </p>
-        <div className="rounded-full px-2 py-1.5 flex-shrink-0" style={{ background: '#4ecdc4' }}>
-          <span style={{ fontSize: 8, fontWeight: 700, color: '#0a1628' }}>See patterns</span>
+        <div className="rounded-full px-3 py-2 flex-shrink-0" style={{ background: '#4ecdc4' }}>
+          <span style={{ fontSize: 9, fontWeight: 700, color: '#0a1628', whiteSpace: 'nowrap' }}>See patterns</span>
         </div>
       </div>
 

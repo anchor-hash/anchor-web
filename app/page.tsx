@@ -479,6 +479,32 @@ function ScreenHome() {
         </div>
       </div>
 
+      {/* Mood check row — one checked drives desire to complete the rest */}
+      <div className="mx-2 mt-2 rounded-xl px-3 py-2.5" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
+        <p style={{ fontSize: 7, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#5a8ea8', marginBottom: 6 }}>How are you feeling?</p>
+        <div className="flex items-center gap-1.5">
+          {[
+            { label: 'Grounded', checked: true  },
+            { label: 'Anxious',  checked: false },
+            { label: 'Tired',    checked: false },
+            { label: 'Hopeful',  checked: false },
+          ].map(item => (
+            <div key={item.label} className="flex items-center gap-1 rounded-full px-1.5 py-1" style={{
+              background: item.checked ? 'rgba(78,205,196,0.12)' : 'transparent',
+              border: `1px solid ${item.checked ? '#4ecdc4' : '#1e3a5f'}`,
+            }}>
+              <div className="w-2.5 h-2.5 rounded-full flex items-center justify-center flex-shrink-0" style={{
+                background: item.checked ? '#4ecdc4' : 'transparent',
+                border: `1px solid ${item.checked ? '#4ecdc4' : '#3a6070'}`,
+              }}>
+                {item.checked && <svg width="5" height="5" viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3" stroke="#0a1628" strokeWidth="1.8" fill="none" strokeLinecap="round"/></svg>}
+              </div>
+              <span style={{ fontSize: 7, color: item.checked ? '#4ecdc4' : '#5a8ea8' }}>{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Insight nudge */}
       <div className="mx-2 mt-2 rounded-xl px-3 py-2 flex items-center gap-2" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
         <p style={{ fontSize: 8, lineHeight: 1.5, flex: 1, color: '#7ab8d0' }}>You&apos;re steady. See how this week fits your bigger picture.</p>

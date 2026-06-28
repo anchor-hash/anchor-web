@@ -229,393 +229,20 @@ function ComingSoonBadge({ large = false }: { large?: boolean }) {
   )
 }
 
-// ─── Phone Screen: Check-in Input ────────────────────────────────────────────
-function ScreenCheckin() {
-  return (
-    <div className="h-full flex flex-col overflow-hidden" style={{ gap: 0 }}>
-      {/* Top bar */}
-      <div className="flex items-center justify-between px-2 pt-2 pb-3">
-        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#9ec8dc" strokeWidth="2.5" strokeLinecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-          <span style={{ fontSize: 9, color: '#9ec8dc' }}>Chats</span>
-        </div>
-        <div className="w-7 h-7 rounded-full flex items-center justify-center" style={{ background: '#1e3a5f' }}>
-          <span style={{ fontSize: 9, fontWeight: 700, color: '#9ec8dc' }}>P</span>
-        </div>
-      </div>
-
-      {/* Logo + headline — generous vertical space matches screenshot */}
-      <div className="flex flex-col items-center" style={{ paddingTop: 8, paddingBottom: 20 }}>
-        {/* Ripple rings */}
-        <div className="relative flex items-center justify-center" style={{ width: 78, height: 78, marginBottom: 14 }}>
-          <div className="absolute rounded-full" style={{ width: 78, height: 78, border: '1px solid rgba(78,205,196,0.1)' }} />
-          <div className="absolute rounded-full" style={{ width: 60, height: 60, border: '1px solid rgba(78,205,196,0.12)' }} />
-          <div className="absolute rounded-full" style={{ width: 44, height: 44, border: '1px solid rgba(78,205,196,0.15)' }} />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.svg" alt="Anchor" width={32} height={32} className="relative z-10 rounded-lg" style={{ display: 'block' }} />
-        </div>
-        <p style={{ fontSize: 18, color: '#e8f4f8', fontFamily: 'Georgia, serif', fontWeight: 600, marginBottom: 6, textAlign: 'center' }}>You&apos;re safe here.</p>
-        <p style={{ fontSize: 10, color: '#5a8ea8', lineHeight: 1.5, textAlign: 'center', maxWidth: 170 }}>Whatever you just read or felt — let&apos;s look at it together, calmly.</p>
-      </div>
-
-      {/* Input card */}
-      <div className="mx-2 rounded-2xl" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-        <div className="px-3 pt-3 pb-2">
-          <p style={{ fontSize: 7.5, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#5a8ea8', marginBottom: 6 }}>What&apos;s on your mind?</p>
-          <p style={{ fontSize: 10, color: '#3a6070', lineHeight: 1.5, paddingBottom: 4 }}>Describe what you&apos;re feeling, or what you just read…</p>
-        </div>
-        <div style={{ height: 1, background: '#1e3a5f', margin: '0 12px' }} />
-        {/* 22 worries badge */}
-        <div className="flex items-center gap-1.5 mx-3 my-2 rounded-lg px-2 py-1.5" style={{ background: 'rgba(78,205,196,0.07)' }}>
-          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span style={{ fontSize: 8, color: '#7ab8d0' }}><span style={{ color: '#4ecdc4', fontWeight: 600 }}>22 worries</span> logged</span>
-        </div>
-        <div style={{ height: 1, background: '#1e3a5f', margin: '0 12px' }} />
-        {/* Toggle + CTA */}
-        <div className="flex items-center justify-between px-3 py-2.5">
-          <div className="flex items-center gap-1.5">
-            <div className="rounded-full flex items-center px-0.5" style={{ width: 26, height: 14, background: '#1e3a5f' }}>
-              <div className="rounded-full" style={{ width: 11, height: 11, background: '#e8f4f8' }} />
-            </div>
-            <span style={{ fontSize: 7.5, color: '#5a8ea8' }}>Had this before</span>
-          </div>
-          <div className="flex items-center gap-1 rounded-full px-3 py-2" style={{ background: 'rgba(78,205,196,0.18)', border: '1px solid rgba(78,205,196,0.35)' }}>
-            <span style={{ fontSize: 9, fontWeight: 700, color: '#e8f4f8' }}>Drop anchor ↑</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Trust bar */}
-      <div className="flex items-center justify-center gap-2 pt-3">
-        <span style={{ fontSize: 8, color: '#2a4a5a' }}>🔒 Private</span>
-        <span style={{ color: '#1e3a5f' }}>·</span>
-        <span style={{ fontSize: 8, color: '#2a4a5a' }}>Evidence-based</span>
-        <span style={{ color: '#1e3a5f' }}>·</span>
-        <span style={{ fontSize: 8, color: '#2a4a5a' }}>Non-judgmental</span>
-      </div>
-    </div>
-  )
-}
-
-// ─── Phone Screen: Patterns ──────────────────────────────────────────────────
-function ScreenInsights() {
-  const bars = [
-    { label: 'General',        pct: 50, color: '#4ecdc4' },
-    { label: 'Cardiac',        pct: 18, color: '#f87171' },
-    { label: 'Cancer',         pct: 14, color: '#fb923c' },
-    { label: 'Neurological',   pct:  9, color: '#60a5fa' },
-    { label: 'Musculoskeletal',pct:  5, color: '#facc15' },
-  ]
-  return (
-    <div className="h-full flex flex-col gap-2 overflow-hidden">
-      {/* Main pattern card */}
-      <div className="mx-1 rounded-2xl p-3" style={{ background: '#0d1f35', border: '1px solid #4ecdc4' }}>
-        <p className="text-[7px] uppercase tracking-widest mb-1" style={{ color: '#4ecdc4' }}>Your main anxiety pattern</p>
-        <p className="text-[13px] font-semibold mb-1" style={{ color: '#e8f4f8', fontFamily: 'Georgia, serif' }}>General Worries</p>
-        <p className="text-[8.5px] leading-relaxed mb-2" style={{ color: '#7ab8d0' }}>50% of your check-ins have been about general symptoms. A recurring pattern is often more about anxiety than the symptom itself.</p>
-        <div className="rounded-full px-3 py-1.5 inline-flex items-center gap-1" style={{ border: '1px solid #4ecdc4' }}>
-          <span className="text-[8px]" style={{ color: '#4ecdc4' }}>Understand general anxiety</span>
-          <span style={{ color: '#4ecdc4', fontSize: 9 }}>›</span>
-        </div>
-      </div>
-
-      {/* When it happens */}
-      <div className="mx-1 rounded-2xl p-3" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-        <p className="text-[7px] uppercase tracking-widest mb-2" style={{ color: '#5a8ea8' }}>When it happens</p>
-        <div className="flex items-start gap-1.5 mb-1.5">
-          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#7ab8d0" strokeWidth="2" strokeLinecap="round" className="mt-0.5 flex-shrink-0"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          <p className="text-[8.5px] leading-tight" style={{ color: '#9ec8dc' }}>23% of your check-ins happen on Tuesdays. That&apos;s your highest-anxiety day.</p>
-        </div>
-        <div className="flex items-start gap-1.5">
-          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#7ab8d0" strokeWidth="2" strokeLinecap="round" className="mt-0.5 flex-shrink-0"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <p className="text-[8.5px] leading-tight" style={{ color: '#9ec8dc' }}>50% of your worries surface evenings. Anxiety peaks when your guard is down.</p>
-        </div>
-      </div>
-
-      {/* What you worry about */}
-      <div className="mx-1 rounded-2xl p-3" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-        <p className="text-[7px] uppercase tracking-widest mb-1.5" style={{ color: '#5a8ea8' }}>What you worry about</p>
-        <div className="flex flex-col gap-1.5">
-          {bars.map(b => (
-            <div key={b.label} className="flex items-center gap-2">
-              <span className="text-[7.5px] w-[72px] flex-shrink-0" style={{ color: '#7ab8d0' }}>{b.label}</span>
-              <div className="flex-1 h-1.5 rounded-full" style={{ background: '#1e3a5f' }}>
-                <div className="h-1.5 rounded-full" style={{ width: `${b.pct * 2}%`, background: b.color }} />
-              </div>
-              <span className="text-[7.5px] w-5 text-right" style={{ color: b.color }}>{b.pct}%</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}
-
-// ─── Phone Screen: Grounding ──────────────────────────────────────────────────
-function ScreenGrounding() {
-  const exercises = [
-    {
-      icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>,
-      name: 'Physiological sigh', duration: '30 seconds', tag: null,
-      desc: 'Double inhale, long exhale. The fastest way to activate your calm response.',
-    },
-    {
-      icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2" strokeLinecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>,
-      name: 'Box breathing', duration: '2 minutes', tag: null,
-      desc: '4 counts in, hold, out, hold. Follows a guided square.',
-    },
-    {
-      icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2" strokeLinecap="round"><circle cx="5" cy="8" r="2" fill="#4ecdc4"/><circle cx="12" cy="8" r="2" fill="#4ecdc4"/><circle cx="5" cy="15" r="2" fill="#4ecdc4"/><circle cx="12" cy="15" r="2" fill="#4ecdc4"/></svg>,
-      name: '5-4-3-2-1', duration: '2 minutes', tag: null,
-      desc: 'Anchor yourself through your senses. Pulls attention out of the spiral and into the room.',
-    },
-    {
-      icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2" strokeLinecap="round"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><line x1="12" y1="6" x2="12" y2="6" strokeWidth="3"/></svg>,
-      name: 'Body scan', duration: '5 minutes', tag: null,
-      desc: 'Tap through 8 body areas at your own pace. Releases held tension and brings you back to the present.',
-    },
-    {
-      icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="2" strokeLinecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="9" x2="12" y2="15"/><line x1="9" y1="12" x2="15" y2="12"/></svg>,
-      name: 'Worry postponement', duration: null, tag: 'CBT technique',
-      desc: '',
-    },
-  ]
-  return (
-    <div className="h-full flex flex-col gap-2 overflow-hidden">
-      {/* Header */}
-      <div className="pt-1 px-1">
-        <p className="text-[14px] font-semibold leading-tight" style={{ color: '#e8f4f8', fontFamily: 'Georgia, serif' }}>Choose an exercise.</p>
-        <p className="text-[8.5px] mt-0.5 leading-tight" style={{ color: '#7ab8d0' }}>Breathing, grounding, and CBT techniques — no audio required.</p>
-      </div>
-
-      {/* List */}
-      <div className="flex flex-col gap-1.5 overflow-hidden">
-        {exercises.map((ex) => (
-          <div key={ex.name} className="mx-1 rounded-xl px-3 py-2.5 flex items-center gap-2.5" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-            <div className="flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: 'rgba(78,205,196,0.1)' }}>
-              {ex.icon}
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-1.5 flex-wrap">
-                <span className="text-[9.5px] font-medium" style={{ color: '#e8f4f8' }}>{ex.name}</span>
-                {ex.duration && <span className="text-[7px] px-1.5 py-0.5 rounded-full" style={{ background: '#1e3a5f', color: '#7ab8d0' }}>{ex.duration}</span>}
-                {ex.tag && <span className="text-[7px] px-1.5 py-0.5 rounded-full" style={{ background: 'rgba(250,204,21,0.15)', color: '#facc15' }}>{ex.tag}</span>}
-              </div>
-              {ex.desc && <p className="text-[7.5px] leading-tight mt-0.5" style={{ color: '#5a8ea8' }}>{ex.desc}</p>}
-            </div>
-            <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#3a6070" strokeWidth="2.5" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-// ─── Phone Screen: Home ───────────────────────────────────────────────────────
-// Matches the native app's post-save state exactly:
-// Post-save home screen — exact match to the native app
-function ScreenHome() {
-  const todayStrip = [
-    { label: 'Mood',    done: true  },
-    { label: 'Breathe', done: false },
-    { label: 'Journal', done: true  },
-  ]
-  const quickCards = [
-    {
-      icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>,
-      label: 'Drop anchor', sub: 'Calm perspective on a health worry.',
-    },
-    {
-      icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.8" strokeLinecap="round"><rect x="4" y="3" width="14" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg>,
-      label: 'Journal', sub: 'Write freely, at your own pace.',
-    },
-    {
-      icon: <svg width="14" height="14" viewBox="0 0 24 17" fill="none" stroke="#4ecdc4" strokeWidth="1.8" strokeLinecap="round"><path d="M2 5 Q5 1 8 5 Q11 9 14 5 Q17 1 20 5 Q21.5 7 22 6.5"/><path d="M2 12 Q5 8 8 12 Q11 16 14 12 Q17 8 20 12 Q21.5 14 22 13.5" opacity="0.5"/></svg>,
-      label: 'Ground me', sub: 'A short exercise for right now.',
-    },
-    {
-      icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.8" strokeLinecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>,
-      label: 'Learn', sub: 'Why anxiety feels like this.',
-    },
-  ]
-
-  return (
-    <div className="h-full flex flex-col overflow-hidden" style={{ gap: 0 }}>
-
-      {/* Header */}
-      <div className="flex items-center justify-between px-3 pt-2 pb-2">
-        <div className="flex items-center gap-1.5">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.svg" alt="Anchor" width={20} height={20} className="rounded-lg" />
-          <span style={{ fontSize: 13, color: '#e8f4f8', fontFamily: 'Georgia, serif' }}>Anchor</span>
-        </div>
-        <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-          <span style={{ fontSize: 8, fontWeight: 700, color: '#9ec8dc' }}>P</span>
-        </div>
-      </div>
-
-      {/* ── Streak hero card ── */}
-      <div className="mx-2 mb-1.5 rounded-2xl" style={{ background: '#0d1f35', border: '1px solid rgba(78,205,196,0.2)' }}>
-        <div style={{ padding: '10px 14px 10px' }}>
-          {/* Row: big number left, info column right */}
-          <div style={{ display: 'flex', alignItems: 'flex-end', gap: 12, marginBottom: 8 }}>
-            <span style={{ fontSize: 52, lineHeight: 1, color: '#4ecdc4', fontFamily: 'Georgia, serif', fontWeight: 400, flexShrink: 0 }}>11</span>
-            <div style={{ flex: 1, paddingBottom: 2 }}>
-              <p style={{ fontSize: 7, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#5a8ea8', marginBottom: 5 }}>days grounded</p>
-              <svg width="100%" height="8" viewBox="0 0 80 8" preserveAspectRatio="none" fill="none" style={{ display: 'block', marginBottom: 4 }}>
-                <path d="M0 4 Q10 1 20 4 Q30 7 40 4 Q50 1 60 4 Q70 7 80 4" stroke="#4ecdc4" strokeWidth="1.3" fill="none" opacity="0.6" strokeLinecap="round"/>
-              </svg>
-              <p style={{ fontSize: 8, color: '#4ecdc4', marginBottom: 2 }}>1 week · Tue, 2 Jun</p>
-              <p style={{ fontSize: 7.5, color: '#5a8ea8', fontStyle: 'italic', lineHeight: 1.35 }}>The hardest part starts becoming the past.</p>
-            </div>
-          </div>
-          {/* Streak quote — full width italic serif, matches app streakMessage() */}
-          <p style={{ fontSize: 11, color: '#9ec8dc', fontFamily: 'Georgia, serif', fontStyle: 'italic', lineHeight: 1.5, marginBottom: 8 }}>
-            One week of showing up. It shows.
-          </p>
-          {/* Divider + mood footer */}
-          <div style={{ borderTop: '1px solid #1a3050', paddingTop: 7, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-              <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#1a6b60', flexShrink: 0 }} />
-              <span style={{ fontSize: 8, color: '#5a8ea8' }}>Today: Good</span>
-            </div>
-            <span style={{ fontSize: 8, color: '#3a6070' }}>Edit mood</span>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Today strip — Mood / Breathe / Journal ── */}
-      <div className="mx-2 mb-1.5 flex gap-1.5">
-        {todayStrip.map(({ label, done }) => (
-          <div key={label} className="flex-1 flex flex-col items-center py-1.5 rounded-2xl" style={{ background: done ? '#051a12' : '#0d1f35', border: `1px solid ${done ? 'rgba(78,205,196,0.3)' : '#1e3a5f'}`, gap: 3 }}>
-            <span style={{ fontSize: 6.5, letterSpacing: '0.1em', textTransform: 'uppercase', color: done ? '#4ecdc4' : '#3a6070', fontWeight: 600 }}>{label}</span>
-            {done
-              ? <svg width="7" height="7" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#4ecdc4" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              : <svg width="7" height="7" viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="#2a4a6a" strokeWidth="2.5" strokeLinecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke="#2a4a6a" strokeWidth="2.5" strokeLinecap="round"/></svg>
-            }
-          </div>
-        ))}
-      </div>
-
-      {/* ── Recommendation card ── */}
-      <div className="mx-2 mb-1.5 rounded-2xl px-2.5 py-2 flex items-center gap-2"
-        style={{ background: '#061428', border: '1px solid rgba(78,205,196,0.25)', borderLeftWidth: 3, borderLeftColor: '#4ecdc4' }}>
-        <p style={{ fontSize: 8.5, lineHeight: 1.45, flex: 1, color: '#7ab8d0' }}>
-          You&apos;re steady and you&apos;ve written today. See how this fits into your bigger picture.
-        </p>
-        <div className="rounded-full px-2.5 py-1.5 flex-shrink-0" style={{ background: '#4ecdc4' }}>
-          <span style={{ fontSize: 8, fontWeight: 700, color: '#0a1628', whiteSpace: 'nowrap' }}>See patterns</span>
-        </div>
-      </div>
-
-      {/* ── 2×2 Quick cards ── */}
-      <div className="mx-2 grid grid-cols-2 gap-1.5">
-        {quickCards.map(card => (
-          <div key={card.label} className="rounded-2xl p-2" style={{ background: '#0d1f35', border: '1px solid #1e3a5f', minHeight: 64 }}>
-            <div className="w-6 h-6 rounded-full flex items-center justify-center mb-1.5"
-              style={{ background: '#061428', border: '1px solid #1e3a5f' }}>
-              {card.icon}
-            </div>
-            <p style={{ fontSize: 9.5, color: '#e8f4f8', fontFamily: 'Georgia, serif', marginBottom: 1 }}>{card.label}</p>
-            <p style={{ fontSize: 7.5, color: '#5a8ea8', lineHeight: 1.35 }}>{card.sub}</p>
-          </div>
-        ))}
-      </div>
-
-    </div>
-  )
-}
-
-// ─── Phone Screen: Journal ────────────────────────────────────────────────────
-function ScreenJournal() {
-  const moods = ['Rough', 'Low', 'Okay', 'Good', 'Great']
-  return (
-    <div className="h-full flex flex-col gap-2 overflow-hidden">
-      {/* Header */}
-      <div className="flex items-center justify-between pt-1 px-1">
-        <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.svg" alt="" width={14} height={14} style={{ borderRadius: 3 }} />
-          </div>
-          <span className="text-[13px] font-semibold" style={{ color: '#e8f4f8', fontFamily: 'Georgia, serif' }}>Journal</span>
-        </div>
-        <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: '#1e3a5f' }}>
-          <span className="text-[8px] font-bold" style={{ color: '#9ec8dc' }}>P</span>
-        </div>
-      </div>
-
-      {/* Today / Calendar toggle */}
-      <div className="mx-1 flex rounded-full p-0.5" style={{ background: '#0d1f35', border: '1px solid #1e3a5f' }}>
-        <div className="flex-1 py-1.5 rounded-full text-center" style={{ background: '#4ecdc4' }}>
-          <span className="text-[8.5px] font-semibold" style={{ color: '#0a1628' }}>Today</span>
-        </div>
-        <div className="flex-1 py-1.5 rounded-full text-center">
-          <span className="text-[8.5px]" style={{ color: '#5a8ea8' }}>Calendar</span>
-        </div>
-      </div>
-
-      {/* Entry card — dark green tint matching app */}
-      <div className="mx-1 rounded-2xl p-3 flex flex-col gap-2.5" style={{ background: '#0a1f0d', border: '1px solid #1a3a1e' }}>
-        <div>
-          <p className="text-[7px] uppercase tracking-widest" style={{ color: '#4a8a5a' }}>Saturday</p>
-          <p className="text-[12px] font-semibold" style={{ color: '#e8f4f8' }}>30 May 2026</p>
-        </div>
-        <div className="h-px" style={{ background: '#1a3a1e' }} />
-
-        {/* Mood picker */}
-        <div>
-          <p className="text-[7px] uppercase tracking-widest mb-1.5" style={{ color: '#4a8a5a' }}>How are you today?</p>
-          <div className="flex gap-1">
-            {moods.map(m => (
-              <div key={m} className="flex-1 rounded-lg py-1.5 flex flex-col items-center gap-0.5"
-                style={{ background: m === 'Good' ? 'rgba(78,205,196,0.12)' : 'transparent', border: `1px solid ${m === 'Good' ? '#4ecdc4' : '#1a3a1e'}` }}>
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={m === 'Good' ? '#4ecdc4' : '#3a6a4a'} strokeWidth="2" strokeLinecap="round">
-                  {m === 'Rough' ? <><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></> :
-                   m === 'Low'   ? <><circle cx="12" cy="12" r="10"/><line x1="8" y1="15" x2="16" y2="15"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></> :
-                   m === 'Okay'  ? <><circle cx="12" cy="12" r="10"/><line x1="8" y1="15" x2="16" y2="15"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></> :
-                   m === 'Good'  ? <><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></> :
-                                   <><circle cx="12" cy="12" r="10"/><path d="M8 13s1.5 3 4 3 4-3 4-3"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></>}
-                </svg>
-                <span className="text-[6.5px]" style={{ color: m === 'Good' ? '#4ecdc4' : '#3a6a4a' }}>{m}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Prompts */}
-        <div className="flex flex-col gap-1">
-          {['What made today feel good?', 'What am I proud of lately?', 'What do I want to remember about this period?'].map(p => (
-            <p key={p} className="text-[8.5px]" style={{ color: '#4ecdc4', opacity: 0.8 }}>{p}</p>
-          ))}
-          <p className="text-[8.5px]" style={{ color: '#2a5a3a' }}>Write freely…</p>
-        </div>
-
-        <div className="h-px" style={{ background: '#1a3a1e' }} />
-
-        {/* Save button */}
-        <div className="rounded-full py-2 flex items-center justify-center" style={{ background: '#4ecdc4' }}>
-          <span className="text-[9px] font-semibold" style={{ color: '#0a1628' }}>Update today&apos;s entry</span>
-        </div>
-        <p className="text-center text-[7px]" style={{ color: '#2a5a3a' }}>Saves automatically as you write</p>
-      </div>
-    </div>
-  )
-}
-
 // ─── Rotating Phone Mockup ────────────────────────────────────────────────────
+const phoneScreens = [
+  { label: 'Home',     src: '/screens/home.png' },
+  { label: 'Journal',  src: '/screens/journal.png' },
+  { label: 'Check in', src: '/screens/checkin.png' },
+  { label: 'Ground',   src: '/screens/ground.png' },
+  { label: 'Patterns', src: '/screens/patterns.png' },
+]
+
 function PhoneMockup() {
   const [activeScreen, setActiveScreen] = useState(0)
-  const screens = [
-    { label: 'Home',     component: <ScreenHome /> },
-    { label: 'Journal',  component: <ScreenJournal /> },
-    { label: 'Check in', component: <ScreenCheckin /> },
-    { label: 'Ground',   component: <ScreenGrounding /> },
-    { label: 'Patterns', component: <ScreenInsights /> },
-  ]
 
   useEffect(() => {
-    const t = setInterval(() => setActiveScreen(s => (s + 1) % screens.length), 4000)
+    const t = setInterval(() => setActiveScreen(s => (s + 1) % phoneScreens.length), 4000)
     return () => clearInterval(t)
   }, [])
 
@@ -632,84 +259,41 @@ function PhoneMockup() {
           className="absolute bottom-[-30px] left-1/2 -translate-x-1/2 w-40 h-10 rounded-full blur-2xl"
           style={{ background: 'rgba(78,205,196,0.25)' }}
         />
-        {/* Phone shell */}
+        {/* Phone shell — real app screenshots fill the frame edge-to-edge */}
         <div
-          className="relative rounded-[38px] overflow-hidden"
+          className="relative rounded-[40px] overflow-hidden"
           style={{
             width: 260,
-            height: 530,
+            height: 565,
             background: '#0a1628',
             border: '2px solid rgba(78,205,196,0.25)',
             boxShadow:
               '0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.08)',
           }}
         >
-          {/* Notch */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-7 bg-[#0a1628] rounded-b-2xl z-10 flex items-center justify-center gap-1.5">
-            <div className="w-2 h-2 rounded-full bg-[#1a3050]" />
-            <div className="w-10 h-1.5 rounded-full bg-[#1a3050]" />
-          </div>
-
-          {/* Screen content with crossfade */}
-          <div className="pt-8 px-3 pb-3 h-full flex flex-col gap-0 overflow-hidden">
-            {/* Status bar */}
-            <div className="flex justify-between items-center text-[9px] pt-1 px-1 mb-1" style={{ color: '#5a8ea8' }}>
-              <span>9:41</span>
-              <span className="flex gap-1">
-                <svg width="12" height="10" viewBox="0 0 12 10" fill="currentColor">
-                  <rect x="0" y="4" width="2" height="6" rx="0.5" />
-                  <rect x="3" y="2.5" width="2" height="7.5" rx="0.5" />
-                  <rect x="6" y="1" width="2" height="9" rx="0.5" />
-                  <rect x="9" y="0" width="2" height="10" rx="0.5" />
-                </svg>
-              </span>
-            </div>
-
-            {/* Animated screen swap */}
-            <div className="flex-1 relative overflow-hidden">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeScreen}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  className="absolute inset-0"
-                >
-                  {screens[activeScreen].component}
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {/* Bottom nav bar */}
-            <div
-              className="flex justify-around pt-2 border-t"
-              style={{ borderColor: 'rgba(255,255,255,0.06)' }}
-            >
-              {[
-                { label: 'Home',     active: activeScreen === 0, icon: <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> },
-                { label: 'Journal',  active: activeScreen === 1, icon: <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4z"/></svg> },
-                { label: 'Check in', active: activeScreen === 2, icon: <svg width="11" height="11" viewBox="0 0 96 96" fill="none" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"><circle cx="48" cy="30" r="10" fill="none"/><line x1="48" y1="40" x2="48" y2="75"/><line x1="30" y1="55" x2="66" y2="55"/><path d="M30 75 C30 82 38 86 48 86 C58 86 66 82 66 75"/></svg> },
-                { label: 'Ground',   active: activeScreen === 3, icon: <svg width="11" height="11" viewBox="0 0 24 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M2 5 Q5 1 8 5 Q11 9 14 5 Q17 1 20 5"/><path d="M2 12 Q5 8 8 12 Q11 16 14 12 Q17 8 20 12" opacity="0.5"/></svg> },
-                { label: 'More',     active: activeScreen === 4, icon: <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="5" cy="12" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="19" cy="12" r="1" fill="currentColor"/></svg> },
-              ].map((item) => (
-                <div key={item.label} className="flex flex-col items-center gap-0.5">
-                  <span style={{ color: item.active ? '#4ecdc4' : '#5a8ea8' }}>{item.icon}</span>
-                  <span className="text-[8px]" style={{ color: item.active ? '#4ecdc4' : '#5a8ea8' }}>{item.label}</span>
-                  {item.active && <div className="w-1 h-1 rounded-full" style={{ background: '#4ecdc4' }} />}
-                </div>
-              ))}
-            </div>
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={activeScreen}
+              src={phoneScreens[activeScreen].src}
+              alt={`Anchor app — ${phoneScreens[activeScreen].label} screen`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="absolute inset-0 w-full h-full object-cover object-top select-none"
+              draggable={false}
+            />
+          </AnimatePresence>
         </div>
       </motion.div>
 
       {/* Screen indicator dots */}
       <div className="flex gap-2">
-        {screens.map((s, i) => (
+        {phoneScreens.map((s, i) => (
           <button
             key={i}
             onClick={() => setActiveScreen(i)}
+            aria-label={`Show ${s.label} screen`}
             className="flex flex-col items-center gap-1 group"
           >
             <div
@@ -724,7 +308,7 @@ function PhoneMockup() {
         ))}
       </div>
       <p className="text-[11px]" style={{ color: '#5a8ea8' }}>
-        {screens[activeScreen].label}
+        {phoneScreens[activeScreen].label}
       </p>
     </div>
   )
@@ -775,46 +359,6 @@ function FeatureCard({
       </div>
       <h3 className="font-lora text-lg font-semibold text-heading mb-2">{title}</h3>
       <p className="text-body text-sm leading-relaxed">{description}</p>
-    </motion.div>
-  )
-}
-
-// ─── Testimonial Card ─────────────────────────────────────────────────────────
-function TestimonialCard({
-  quote,
-  name,
-  role,
-  stars,
-}: {
-  quote: string
-  name: string
-  role: string
-  stars: number
-}) {
-  return (
-    <motion.div
-      variants={fadeUp(0, 28)}
-      whileHover={{ y: -4 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      className="rounded-2xl p-7 flex flex-col gap-4"
-      style={{
-        background: '#0d1e38',
-        border: '1px solid rgba(255,255,255,0.07)',
-        boxShadow: '0 4px 24px rgba(0,0,0,0.3)',
-      }}
-    >
-      <div className="flex gap-0.5">
-        {Array.from({ length: stars }).map((_, i) => (
-          <svg key={i} width="16" height="16" viewBox="0 0 16 16" fill="#4ecdc4">
-            <path d="M8 1l1.9 4h4.1l-3.3 2.7 1.3 4.3L8 9.7l-4 2.3 1.3-4.3L2 5h4.1L8 1z" />
-          </svg>
-        ))}
-      </div>
-      <p className="text-body text-[15px] leading-relaxed italic">"{quote}"</p>
-      <div className="mt-auto">
-        <p className="text-heading text-sm font-semibold">{name}</p>
-        <p className="text-muted text-xs mt-0.5">{role}</p>
-      </div>
     </motion.div>
   )
 }
@@ -1242,14 +786,14 @@ export default function Home() {
               className="flex items-center gap-6 mt-10 pt-10 border-t"
               style={{ borderColor: 'rgba(255,255,255,0.07)' }}
             >
-              {[
+              {([
                 { val: 6, suffix: ' CBT techniques', label: 'built in' },
                 { val: 100, suffix: '% private', label: 'your data, yours only' },
-                { val: 0, suffix: ' ads. Ever.', label: 'no tracking either' },
-              ].map((s) => (
+                { text: 'No ads. Ever.', label: 'no tracking either' },
+              ] as { val?: number; suffix?: string; text?: string; label: string }[]).map((s) => (
                 <div key={s.label}>
                   <p className="text-heading text-xl font-bold font-lora">
-                    <AnimatedCounter target={s.val} suffix={s.suffix} />
+                    {s.text ? s.text : <AnimatedCounter target={s.val ?? 0} suffix={s.suffix} />}
                   </p>
                   <p className="text-muted text-xs mt-0.5">{s.label}</p>
                 </div>
@@ -1289,7 +833,7 @@ export default function Home() {
               { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>, text: 'Free to download on iPhone' },
               { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>, text: '100% private — no ads, ever' },
               { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>, text: 'Evidence-based CBT techniques' },
-              { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>, text: 'Built for iOS — launching soon' },
+              { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>, text: 'Cancel anytime — no lock-in' },
             ].map((item, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
                 className="flex items-center gap-2 text-muted text-sm">
@@ -1422,26 +966,61 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── TESTIMONIALS ────────────────────────────────────────────────── */}
-      <section className="py-28" style={{ background: 'rgba(255,255,255,0.015)' }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      {/* ─── EVIDENCE / WHY IT WORKS ─────────────────────────────────────── */}
+      <section className="py-28 relative overflow-hidden" style={{ background: 'rgba(255,255,255,0.015)' }}>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          style={{ width: 1000, height: 600, background: 'radial-gradient(ellipse at center, rgba(78,205,196,0.06) 0%, transparent 70%)' }} />
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
           <Section>
-            <motion.div variants={fadeUp(0)} className="text-center mb-16">
-              <p className="text-teal text-sm font-medium tracking-widest uppercase mb-4">Testimonials</p>
-              <h2 className="font-lora text-4xl md:text-5xl font-bold text-heading">Real people. Real relief.</h2>
+            <motion.div variants={fadeUp(0)} className="text-center mb-16 max-w-2xl mx-auto">
+              <p className="text-teal text-sm font-medium tracking-widest uppercase mb-4">Why it works</p>
+              <h2 className="font-lora text-4xl md:text-5xl font-bold text-heading mb-4">Built on what actually works</h2>
+              <p className="text-body leading-relaxed">
+                Anchor isn&apos;t a chatbot with a wellness coat of paint. Every tool is drawn from the
+                cognitive-behavioural techniques clinicians use to help people manage health anxiety.
+              </p>
             </motion.div>
-            <motion.div variants={staggerContainer(0.14)} className="grid md:grid-cols-3 gap-6">
-              <TestimonialCard quote="I used to spend hours a day Googling symptoms. Anchor's reality check tool broke that cycle almost immediately. I can't believe how much calmer I am after just three weeks." name="Sarah K." role="Beta tester · 3 months" stars={5} />
-              <TestimonialCard quote="The 3am panic sessions were destroying my sleep and my relationships. Now I open Anchor, do the breathing exercise, and I'm back asleep within 20 minutes. Life-changing." name="Marcus T." role="Beta tester · Anchor Plus" stars={5} />
-              <TestimonialCard quote="My therapist actually recommended I use something like this between sessions. The worry journal in particular has helped me understand my triggers in ways I couldn't see before." name="Priya M." role="Beta tester · alongside therapy" stars={5} />
+            <motion.div variants={staggerContainer(0.12)} className="grid md:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a3 3 0 0 0-3 3 3 3 0 0 0-3 3 3 3 0 0 0 0 6 3 3 0 0 0 3 3 3 3 0 0 0 6 0 3 3 0 0 0 3-3 3 3 0 0 0 0-6 3 3 0 0 0-3-3 3 3 0 0 0-3-3z"/><path d="M12 5v16"/></svg>,
+                  title: 'Cognitive Behavioural Therapy',
+                  desc: 'The most-studied, most-effective approach for health anxiety. Anchor turns its core techniques into something you can reach for in the moment a spiral starts.',
+                },
+                {
+                  icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>,
+                  title: 'Validated screening (PHQ-4)',
+                  desc: 'The same four-question measure used in clinical settings — so you can track how you\'re genuinely doing over time, not just how today happens to feel.',
+                },
+                {
+                  icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>,
+                  title: 'Behavioural experiments',
+                  desc: 'The gold-standard technique for breaking the reassurance-seeking cycle: predict what you fear will happen, test it, and learn from what actually does.',
+                },
+              ].map((p) => (
+                <motion.div key={p.title} variants={fadeUp(0, 24)} whileHover={{ y: -4 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+                  className="rounded-2xl p-7"
+                  style={{ background: '#0d1e38', border: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 4px 24px rgba(0,0,0,0.3)' }}>
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={{ background: 'rgba(78,205,196,0.1)' }}>{p.icon}</div>
+                  <h3 className="font-lora text-lg font-bold text-heading mb-3">{p.title}</h3>
+                  <p className="text-body text-sm leading-relaxed">{p.desc}</p>
+                </motion.div>
+              ))}
             </motion.div>
+            <motion.p variants={fadeUp(0.1)} className="text-muted text-xs text-center mt-10 max-w-xl mx-auto leading-relaxed">
+              Anchor is a self-help tool, not a medical device, and doesn&apos;t replace professional care.
+              If you&apos;re in crisis, please contact your local emergency services.
+            </motion.p>
           </Section>
         </div>
       </section>
 
       {/* ─── PRICING ─────────────────────────────────────────────────────── */}
-      <section id="pricing" className="py-28">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section id="pricing" className="py-28 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          style={{ width: 700, height: 500, background: 'radial-gradient(ellipse at center, rgba(78,205,196,0.07) 0%, transparent 70%)' }} />
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
           <Section>
             <motion.div variants={fadeUp(0)} className="text-center mb-12">
               <p className="text-teal text-sm font-medium tracking-widest uppercase mb-4">Pricing</p>

@@ -883,32 +883,30 @@ export default function Home() {
               <h2 className="font-lora text-4xl md:text-5xl font-bold text-heading">Three steps to calmer</h2>
               <p className="text-body mt-4 max-w-xl mx-auto">Anchor meets you where you are — in the middle of a spiral, or building resilience day by day.</p>
             </motion.div>
-            <div className="relative max-w-4xl mx-auto">
-              <div className="absolute top-12 left-[calc(16.67%-1px)] right-[calc(16.67%-1px)] hidden md:block h-px"
-                style={{ background: 'linear-gradient(90deg, transparent, rgba(78,205,196,0.3), transparent)' }} />
-              <motion.div variants={staggerContainer(0.18)} className="grid md:grid-cols-3 gap-10">
-                {[
-                  { num: '01', title: 'Check in', description: 'Describe what you\'re feeling or what you just read. Anchor listens and asks what it needs to understand you properly.', icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> },
-                  { num: '02', title: 'Get perspective', description: 'Anchor analyses what\'s likely going on, what would actually matter, and gives you a calm, honest triage — no alarm, no dismissal.', icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> },
-                  { num: '03', title: 'Build resilience', description: 'Your data reveals patterns. Anchor surfaces insights so you can understand your triggers and measure real progress over time.', icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> },
-                ].map((step, i) => (
-                  <motion.div key={i} variants={fadeUp(0, 28)} className="flex flex-col items-center md:items-center text-center">
-                    <div className="relative mb-6">
-                      <div className="w-24 h-24 rounded-2xl flex items-center justify-center"
-                        style={{ background: 'linear-gradient(135deg, #0d1e38, #0a1628)', border: '1px solid rgba(78,205,196,0.2)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }}>
-                        {step.icon}
-                      </div>
-                      <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold"
-                        style={{ background: '#4ecdc4', color: '#0a1628' }}>
-                        {step.num.split('0')[1]}
-                      </div>
+            <motion.div variants={staggerContainer(0.18)} className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {[
+                { num: '1', title: 'Check in', src: '/screens/checkin.png', pos: '50% 42%', description: 'Describe what you\'re feeling or what you just read. Anchor listens and asks what it needs to understand you properly.' },
+                { num: '2', title: 'Get perspective', src: '/screens/patterns.png', pos: '50% 0%', description: 'Anchor analyses what\'s likely going on and gives you a calm, honest read on your patterns — no alarm, no dismissal.' },
+                { num: '3', title: 'Build resilience', src: '/screens/home.png', pos: '50% 0%', description: 'Every worry you work through is logged as proof. Anchor surfaces your progress so you can see how far you\'ve come.' },
+              ].map((step, i) => (
+                <motion.div key={i} variants={fadeUp(0, 28)} className="rounded-2xl overflow-hidden flex flex-col"
+                  style={{ background: '#0d1e38', border: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 8px 32px rgba(0,0,0,0.35)' }}>
+                  <div className="relative" style={{ height: 280 }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={step.src} alt={`Anchor app — ${step.title}`} className="absolute inset-0 w-full h-full object-cover select-none" style={{ objectPosition: step.pos }} draggable={false} />
+                    <div className="absolute inset-x-0 bottom-0 h-20 pointer-events-none" style={{ background: 'linear-gradient(to top, #0d1e38, transparent)' }} />
+                    <div className="absolute top-4 left-4 w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold"
+                      style={{ background: '#4ecdc4', color: '#0a1628', boxShadow: '0 4px 12px rgba(0,0,0,0.45)' }}>
+                      {step.num}
                     </div>
-                    <h3 className="font-lora text-xl font-bold text-heading mb-3">{step.title}</h3>
+                  </div>
+                  <div className="px-6 pb-7 pt-1">
+                    <h3 className="font-lora text-xl font-bold text-heading mb-2">{step.title}</h3>
                     <p className="text-body text-sm leading-relaxed">{step.description}</p>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
           </Section>
         </div>
       </section>

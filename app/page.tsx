@@ -885,16 +885,16 @@ export default function Home() {
             </motion.div>
             <motion.div variants={staggerContainer(0.18)} className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {[
-                { num: '1', title: 'Check in', src: '/screens/checkin.png', pos: '50% 42%', description: 'Describe what you\'re feeling or what you just read. Anchor listens and asks what it needs to understand you properly.' },
-                { num: '2', title: 'Get perspective', src: '/screens/patterns.png', pos: '50% 0%', description: 'Anchor analyses what\'s likely going on and gives you a calm, honest read on your patterns — no alarm, no dismissal.' },
-                { num: '3', title: 'Build resilience', src: '/screens/home.png', pos: '50% 0%', description: 'Every worry you work through is logged as proof. Anchor surfaces your progress so you can see how far you\'ve come.' },
+                { num: '1', title: 'Check in', src: '/screens/checkin.png', pos: '50% 35%', description: 'Describe what you\'re feeling or what you just read. Anchor listens and asks what it needs to understand you properly.' },
+                { num: '2', title: 'Get perspective', src: '/screens/patterns.png', pos: '50% 12%', description: 'Anchor analyses what\'s likely going on and gives you a calm, honest read on your patterns — no alarm, no dismissal.' },
+                { num: '3', title: 'Build resilience', src: '/screens/home.png', pos: '50% 12%', description: 'Every worry you work through is logged as proof. Anchor surfaces your progress so you can see how far you\'ve come.' },
               ].map((step, i) => (
                 <motion.div key={i} variants={fadeUp(0, 28)} className="rounded-2xl overflow-hidden flex flex-col"
                   style={{ background: '#0d1e38', border: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 8px 32px rgba(0,0,0,0.35)' }}>
                   <div className="relative" style={{ height: 280 }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={step.src} alt={`Anchor app — ${step.title}`} className="absolute inset-0 w-full h-full object-cover select-none" style={{ objectPosition: step.pos }} draggable={false} />
-                    <div className="absolute inset-x-0 bottom-0 h-20 pointer-events-none" style={{ background: 'linear-gradient(to top, #0d1e38, transparent)' }} />
+                    <div className="absolute inset-x-0 bottom-0 h-28 pointer-events-none" style={{ background: 'linear-gradient(to top, #0d1e38 35%, transparent)' }} />
                     <div className="absolute top-4 left-4 w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold"
                       style={{ background: '#4ecdc4', color: '#0a1628', boxShadow: '0 4px 12px rgba(0,0,0,0.45)' }}>
                       {step.num}

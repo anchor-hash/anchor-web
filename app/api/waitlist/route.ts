@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { createClient } from '@supabase/supabase-js'
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,9 +13,24 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // TODO: wire up to Resend/Mailchimp/Supabase for real persistence
-    // e.g. await resend.emails.send({ from: ..., to: ..., subject: "New Anchor waitlist signup", ... })
-    console.log('[Waitlist]', { email, timestamp: new Date().toISOString() })
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!
+    )
+
+    const { error } = await supabase
+      .from('waitlist')
+      .insert({ email: email.toLowerCase().trim() })
+
+    // A duplicate signup (unique violation, code 23505) isn't an error from
+    // the user's point of view — they're already on the list either way.
+    if (error && error.code !== '23505') {
+      console.error('[Waitlist] insert failed:', error.message)
+      return NextResponse.json(
+        { ok: false, error: 'Something went wrong. Please try again.' },
+        { status: 500 }
+      )
+    }
 
     return NextResponse.json({ ok: true })
   } catch {

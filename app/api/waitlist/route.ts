@@ -4,7 +4,7 @@ import { createClient } from '@supabase/supabase-js'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { email } = body
+    const { email, source } = body
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json(
@@ -20,11 +20,18 @@ export async function POST(request: NextRequest) {
 
     const { error } = await supabase
       .from('waitlist')
-      .insert({ email: email.toLowerCase().trim() })
+      .insert({
+        email: email.toLowerCase().trim(),
+        ...(typeof source === 'string' ? { source } : {}),
+      })
 
-    // A duplicate signup (unique violation, code 23505) isn't an error from
-    // the user's point of view — they're already on the list either way.
-    if (error && error.code !== '23505') {
+    // A duplicate signup (unique violation, code 23505) isn't an error —
+    // they're already on the list. Tell the client so it can show a
+    // distinct message instead of the generic success one.
+    if (error) {
+      if (error.code === '23505') {
+        return NextResponse.json({ ok: true, duplicate: true })
+      }
       console.error('[Waitlist] insert failed:', error.message)
       return NextResponse.json(
         { ok: false, error: 'Something went wrong. Please try again.' },

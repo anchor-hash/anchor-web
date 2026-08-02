@@ -3,11 +3,20 @@
 @tailwind utilities;
 
 :root {
+  /* Legacy aliases — kept so existing inline styles/utilities keep working */
   --navy: #0a1628;
   --teal: #4ecdc4;
   --heading: #e8f4f8;
   --body: #9ec8dc;
   --muted: #5a8ea8;
+
+  /* Design system tokens */
+  --color-bg: #0a1628;
+  --color-surface: #0f2040;
+  --color-border: #1e3a5f;
+  --color-text: #e8f4f8;
+  --color-muted: #7ba7bc;
+  --color-accent: #4ecdc4;
 }
 
 * {
@@ -21,9 +30,10 @@ html {
 }
 
 body {
-  background-color: var(--navy);
-  color: var(--body);
+  background-color: var(--color-bg);
+  color: var(--color-muted);
   font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-weight: 300;
   overflow-x: hidden;
 }
 

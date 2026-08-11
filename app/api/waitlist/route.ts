@@ -39,6 +39,25 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Trigger the welcome email on the anchor backend (separate deployment,
+    // shared-secret auth — see anchor/app/api/waitlist-welcome-email).
+    // Awaited (serverless functions can be frozen/killed right after the
+    // response is sent, so a true fire-and-forget fetch risks never actually
+    // going out) but its result never affects the signup response itself —
+    // the row is already safely in the waitlist table either way.
+    if (process.env.WAITLIST_EMAIL_SECRET) {
+      await fetch('https://app.getanchorhealth.app/api/waitlist-welcome-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.WAITLIST_EMAIL_SECRET}`,
+        },
+        body: JSON.stringify({ email: email.toLowerCase().trim() }),
+      }).catch((err) => console.error('[Waitlist] welcome email trigger failed:', err))
+    } else {
+      console.error('[Waitlist] WAITLIST_EMAIL_SECRET not set — skipping welcome email')
+    }
+
     return NextResponse.json({ ok: true })
   } catch {
     return NextResponse.json(

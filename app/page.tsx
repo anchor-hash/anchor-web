@@ -285,7 +285,15 @@ function WaitlistForm({ large = false, source = 'hero' }: { large?: boolean; sou
           <path d="M5.5 9l2.5 2.5 5-5" stroke="#0a1628" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
         <span className="text-teal text-sm font-medium">
-          {status === 'duplicate' ? "You're already on the list." : "You're on the list. We'll email you the day we launch."}
+          {status === 'duplicate' ? "You're already on the list." : (
+            <>
+              You&apos;re on the list. Follow along on{' '}
+              <a href="https://www.instagram.com/anchorhealth.app/" target="_blank" rel="noopener noreferrer" className="underline">
+                Instagram
+              </a>{' '}
+              for updates.
+            </>
+          )}
         </span>
       </motion.div>
     )

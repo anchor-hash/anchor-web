@@ -99,7 +99,7 @@ function AnimatedCounter({
 // and the motion itself illustrates the headline: something settles, calms.
 function AnchorMark() {
   return (
-    <div className="relative flex items-center justify-center mb-2" style={{ width: 140, height: 140 }}>
+    <div className="relative hidden md:flex items-center justify-center mb-2" style={{ width: 140, height: 140 }}>
       {[0, 1, 2].map((i) => (
         <motion.div
           key={i}
@@ -847,8 +847,10 @@ export default function Home() {
           }}
         />
 
-        <div className="max-w-3xl mx-auto px-6 lg:px-8 w-full py-20 flex flex-col items-center text-center">
-          {/* The anchor settles first — a brief, deliberate brand moment before the message arrives */}
+        <div className="max-w-3xl mx-auto px-6 lg:px-8 w-full py-12 md:py-20 flex flex-col items-center text-center">
+          {/* The anchor settles first — a brief, deliberate brand moment before the message arrives.
+              Hidden on mobile (<768px): the nav wordmark is sufficient branding there, and the
+              circle was pushing the email capture form below the fold on phones. */}
           <AnchorMark />
 
           {/* Coming soon badge */}
@@ -856,7 +858,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.7 }}
-            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium mb-8"
+            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium mb-5 md:mb-8"
             style={{ background: 'rgba(78,205,196,0.1)', color: '#4ecdc4', border: '1px solid rgba(78,205,196,0.2)' }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-teal" style={{ animation: 'pulse 2s ease-in-out infinite' }} />
@@ -869,10 +871,15 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.4 }}
-            className="text-body text-lg leading-relaxed mt-6 mb-8 max-w-lg mx-auto"
+            className="text-body text-lg leading-relaxed mt-3 mb-5 md:mt-6 md:mb-8 max-w-lg mx-auto"
           >
-            The calm, evidence-based companion for health anxiety. Track symptoms,
-            challenge spirals, and build lasting resilience — right from your iPhone.
+            {/* Single short line on mobile so the form fits above the fold; full two-sentence
+                version returns at md: and up where there's room for it. */}
+            <span className="md:hidden">The calm, evidence-based companion for health anxiety.</span>
+            <span className="hidden md:inline">
+              The calm, evidence-based companion for health anxiety. Track symptoms,
+              challenge spirals, and build lasting resilience — right from your iPhone.
+            </span>
           </motion.p>
 
           {/* Waitlist CTA */}
@@ -880,11 +887,12 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.55 }}
-            className="flex flex-col items-center gap-4 w-full"
+            className="flex flex-col items-center gap-2 md:gap-4 w-full"
           >
             <p className="text-muted text-sm font-medium">Get notified when we launch on the App Store:</p>
             <WaitlistForm />
-            <div className="flex items-center gap-3">
+            {/* Hidden on mobile — was pushing content down below the fold unnecessarily. */}
+            <div className="hidden md:flex items-center gap-3">
               <ComingSoonBadge />
               <p className="text-muted text-xs">iOS · Free to download</p>
             </div>

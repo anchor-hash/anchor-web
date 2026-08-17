@@ -1281,14 +1281,8 @@ export default function Home() {
           {/* Row 1: logo + wordmark left, nav links right */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-5">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #4ecdc4, #a8edea)' }}>
-                <svg width="16" height="16" viewBox="0 0 96 96" fill="none" stroke="#0a1628" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="48" cy="28" r="10" fill="none" />
-                  <line x1="48" y1="38" x2="48" y2="72" />
-                  <line x1="28" y1="52" x2="68" y2="52" />
-                  <path d="M28 72 C28 80 37 84 48 84 C59 84 68 80 68 72" />
-                </svg>
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.svg" alt="Anchor" width={32} height={32} className="rounded-xl" style={{ display: 'block' }} />
               <span className="font-lora text-lg font-bold text-heading">Anchor</span>
             </div>
             <nav className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted">

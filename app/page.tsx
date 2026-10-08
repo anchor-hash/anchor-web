@@ -162,7 +162,7 @@ function AnimatedHeadline({ lines, center = false, startDelay = 0.3 }: { lines: 
                 {word}
               </motion.span>
               {/* Real sibling space character (not trailing-inside-inline-block,
-                  which browsers collapse) — keeps innerText/screen readers/
+                  which browsers collapse), keeps innerText/screen readers/
                   copy-paste from reading words as one run-on string. */}
               {wi < arr.length - 1 ? ' ' : ''}
             </React.Fragment>
@@ -514,7 +514,7 @@ function PricingCard({
           )}
         </motion.div>
         {isAnnual && annualPrice && price !== 'Free' && price !== 'Custom' && (
-          <p className="text-teal text-xs mt-1">Billed annually — save 49% · A$79.99/year</p>
+          <p className="text-teal text-xs mt-1">Billed annually. Save 49% · A$79.99/year</p>
         )}
       </div>
 
@@ -691,7 +691,7 @@ export default function Home() {
       category: 'Getting Started',
       icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>,
       items: [
-        { q: 'When will Anchor be on the App Store?', a: 'We\'re in the final stages before launch. Sign up above and we\'ll email you the moment it goes live — you\'ll be among the first to download it.' },
+        { q: 'When will Anchor be on the App Store?', a: 'We\'re in the final stages before launch. Sign up above and we\'ll email you the moment it goes live. You\'ll be among the first to download it.' },
         { q: 'Is it available on Android?', a: 'Anchor is launching on iOS first. Android is on our roadmap and we\'ll announce it when it\'s ready.' },
         { q: 'How is Anchor different from therapy?', a: 'Anchor is a daily self-management tool for health anxiety, not a replacement for clinical care. It gives you evidence-based techniques to use between sessions, or on your own journey.' },
       ],
@@ -717,7 +717,7 @@ export default function Home() {
       category: 'Privacy',
       icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
       items: [
-        { q: 'Do you sell my data?', a: 'Never. Your data is yours, full stop. We are not in the business of selling personal information — especially health information.' },
+        { q: 'Do you sell my data?', a: 'Never. Your data is yours, full stop. We are not in the business of selling personal information, especially health information.' },
         { q: 'Who can see my entries?', a: 'Only you. All journal entries and check-ins are private and encrypted. No one at Anchor can read your personal entries.' },
         { q: 'Can I delete my account?', a: 'Yes, at any time. Tap your profile icon in the top right of the app → Manage account → Delete account. This permanently removes all your data from our servers.' },
       ],
@@ -878,7 +878,7 @@ export default function Home() {
             <span className="md:hidden">The calm, evidence-based companion for health anxiety.</span>
             <span className="hidden md:inline">
               The calm, evidence-based companion for health anxiety. Track symptoms,
-              challenge spirals, and build lasting resilience — right from your iPhone.
+              challenge spirals, and build lasting resilience, right from your iPhone.
             </span>
           </motion.p>
 
@@ -968,7 +968,7 @@ export default function Home() {
           <PainCard
             icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>}
             title="The Googling spiral"
-            description="You notice a sensation, Google it, and 45 minutes later you've convinced yourself of three rare diagnoses. The relief never comes — just more questions."
+            description="You notice a sensation, Google it, and 45 minutes later you've convinced yourself of three rare diagnoses. The relief never comes, just more questions."
           />
           <PainCard
             icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>}
@@ -978,7 +978,7 @@ export default function Home() {
           <PainCard
             icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>}
             title="Knowing, but still spiralling"
-            description="You've been told nothing is wrong. You believe it — for a moment. But the cycle starts again within hours. Understanding anxiety isn't enough to stop it."
+            description="You've been told nothing is wrong. You believe it, for a moment. But the cycle starts again within hours. Understanding anxiety isn't enough to stop it."
           />
         </motion.div>
       </Section>
@@ -990,12 +990,12 @@ export default function Home() {
             <motion.div variants={fadeUp(0)} className="text-center mb-24">
               <p className="text-teal text-sm font-medium tracking-widest uppercase mb-4">How it works</p>
               <h2 className="font-lora text-4xl md:text-5xl font-bold text-heading">Three steps to calmer</h2>
-              <p className="text-body mt-4 max-w-xl mx-auto">Anchor meets you where you are — in the middle of a spiral, or building resilience day by day.</p>
+              <p className="text-body mt-4 max-w-xl mx-auto">Anchor meets you where you are, in the middle of a spiral, or building resilience day by day.</p>
             </motion.div>
             <div className="flex flex-col gap-24 md:gap-32">
               {[
                 { num: '1', title: 'Check in', src: '/screens/checkin.png', pos: '50% 35%', description: 'Describe what you\'re feeling or what you just read. Anchor listens and asks what it needs to understand you properly.' },
-                { num: '2', title: 'Get perspective', src: '/screens/patterns.png', pos: '50% 12%', description: 'Anchor analyses what\'s likely going on and gives you a calm, honest read on your patterns — no alarm, no dismissal.' },
+                { num: '2', title: 'Get perspective', src: '/screens/patterns.png', pos: '50% 12%', description: 'Anchor analyses what\'s likely going on and gives you a calm, honest read on your patterns. No alarm, no dismissal.' },
                 { num: '3', title: 'Build resilience', src: '/screens/home.png', pos: '50% 12%', description: 'Every worry you work through is logged as proof. Anchor surfaces your progress so you can see how far you\'ve come.' },
               ].map((step, i) => {
                 const imgFirst = i % 2 === 0
@@ -1016,7 +1016,7 @@ export default function Home() {
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={step.src}
-                            alt={`Anchor app — ${step.title}`}
+                            alt={`Anchor app: ${step.title}`}
                             loading="lazy"
                             className="w-full select-none"
                             style={{ aspectRatio: '240 / 520', objectFit: 'cover', objectPosition: step.pos }}
@@ -1072,12 +1072,12 @@ export default function Home() {
                 </motion.p>
                 <motion.div variants={staggerContainer(0.06)} className="flex flex-col gap-6">
                   {[
-                    { title: 'AI Check-in', desc: 'Describe what you\'re feeling or what you just read. Anchor converses with you, then gives calm evidence-based perspective — not alarm, not dismissal.' },
-                    { title: '7 Grounding Exercises', desc: 'Box breathing, physiological sigh, 5-4-3-2-1, body scan, worry postponement, safe place, cognitive defusion — guided and tap-through, no audio required.' },
+                    { title: 'AI Check-in', desc: 'Describe what you\'re feeling or what you just read. Anchor converses with you, then gives calm evidence-based perspective, not alarm, not dismissal.' },
+                    { title: '7 Grounding Exercises', desc: 'Box breathing, physiological sigh, 5-4-3-2-1, body scan, worry postponement, safe place, cognitive defusion, guided and tap-through, no audio required.' },
                     { title: 'Daily Journal', desc: 'Structured prompts and free writing with mood tracking. Private entries, only ever visible to you.' },
                     { title: 'Mood Tracking', desc: 'Log how you\'re feeling each day. Anchor tracks your streak and shows your mood history over time.' },
                     { title: 'Weekly PHQ-4 Check-in', desc: 'A validated 4-question screening for anxiety and depression. Takes 30 seconds, shows up once a week.' },
-                    { title: 'Learn Library', desc: 'Six evidence-based lessons covering the most common health anxiety spirals — cardiac, neurological, respiratory, digestive, skin, and general.' },
+                    { title: 'Learn Library', desc: 'Six evidence-based lessons covering the most common health anxiety spirals, cardiac, neurological, respiratory, digestive, skin, and general.' },
                   ].map((f) => (
                     <FeatureRow key={f.title} title={f.title} description={f.desc} />
                   ))}
@@ -1088,15 +1088,15 @@ export default function Home() {
               <motion.div variants={fadeUp(0.1)} className="rounded-2xl p-8" style={{ background: 'rgba(78,205,196,0.05)', border: '1px solid rgba(78,205,196,0.15)' }}>
                 <p className="text-heading text-sm font-semibold uppercase tracking-widest mb-7 flex items-center gap-3">
                   <span className="inline-block px-3 py-1 rounded-full text-[11px]" style={{ background: 'rgba(78,205,196,0.12)', border: '1px solid rgba(78,205,196,0.3)', color: '#4ecdc4' }}>Plus</span>
-                  Anchor Plus — deeper tools for lasting change
+                  Anchor Plus: deeper tools for lasting change
                 </p>
                 <motion.div variants={staggerContainer(0.06)} className="flex flex-col gap-6">
                   {[
-                    { title: 'Unlimited Check-ins', desc: 'Free gives you one AI check-in a week. Plus removes the limit entirely — check in as often as a worry comes up.' },
-                    { title: 'Check-in Insights Breakdown', desc: 'The full structured analysis behind every check-in — what\'s likely going on, what would actually matter, and why.' },
+                    { title: 'Unlimited Check-ins', desc: 'Free gives you one AI check-in a week. Plus removes the limit entirely. Check in as often as a worry comes up.' },
+                    { title: 'Check-in Insights Breakdown', desc: 'The full structured analysis behind every check-in. What\'s likely going on, what would actually matter, and why.' },
                     { title: 'Full Pattern Analysis', desc: 'See your anxiety broken down by trigger category, time of day, and day of week. Understand what\'s actually driving your spikes.' },
                     { title: 'GP Health Summary', desc: 'Auto-generated summary of your check-in history. Print or share it before any GP or therapy appointment.' },
-                    { title: 'Monthly Letter from Anchor', desc: 'A personalised monthly reflection written from your own data — your progress, patterns, and what to focus on next.' },
+                    { title: 'Monthly Letter from Anchor', desc: 'A personalised monthly reflection written from your own data. Your progress, patterns, and what to focus on next.' },
                     { title: 'Early Access to New Features', desc: 'Plus members get new features first, before they roll out to the free tier.' },
                   ].map((f) => (
                     <FeatureRow key={f.title} title={f.title} description={f.desc} isPlus />
@@ -1132,7 +1132,7 @@ export default function Home() {
                 {
                   icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>,
                   title: 'Validated screening (PHQ-4)',
-                  desc: 'The same four-question measure used in clinical settings — so you can track how you\'re genuinely doing over time, not just how today happens to feel.',
+                  desc: 'The same four-question measure used in clinical settings, so you can track how you\'re genuinely doing over time, not just how today happens to feel.',
                 },
                 {
                   icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>,
@@ -1262,7 +1262,7 @@ export default function Home() {
               <span className="text-gradient-teal">calm again.</span>
             </motion.h2>
             <motion.p variants={fadeUp(0.1)} className="text-body text-lg max-w-xl mx-auto mb-10">
-              Join people breaking the health anxiety cycle — one check-in at a time. We'll email you the day Anchor goes live.
+              Join people breaking the health anxiety cycle, one check-in at a time. We'll email you the day Anchor goes live.
             </motion.p>
             <motion.div variants={fadeUp(0.15)} className="flex flex-col items-center gap-4">
               <WaitlistForm large source="footer" />

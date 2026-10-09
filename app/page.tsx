@@ -1294,7 +1294,7 @@ export default function Home() {
           </div>
           {/* Row 2: copyright left, Privacy · Terms right */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-3 pt-6 border-t" style={{ borderColor: 'var(--color-border)' }}>
-            <p className="text-muted text-xs">© 2026 Anchor Health Ltd</p>
+            <p className="text-muted text-xs">© 2026 Anchor Health</p>
             <div className="flex items-center gap-6 text-sm text-muted">
               <a href="https://app.getanchorhealth.app/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-body transition-colors">Privacy</a>
               <a href="https://app.getanchorhealth.app/terms" target="_blank" rel="noopener noreferrer" className="hover:text-body transition-colors">Terms</a>

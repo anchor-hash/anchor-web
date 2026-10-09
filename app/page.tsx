@@ -718,7 +718,7 @@ export default function Home() {
       icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
       items: [
         { q: 'Do you sell my data?', a: 'Never. Your data is yours, full stop. We are not in the business of selling personal information, especially health information.' },
-        { q: 'Who can see my entries?', a: 'Only you. All journal entries and check-ins are private and encrypted. No one at Anchor can read your personal entries.' },
+        { q: 'Who can see my entries?', a: 'Only you. Your journal entries and check-ins are encrypted on your device before they are stored, so no one at Anchor can read them. When you use the AI check-in, that message is sent securely to our AI provider to write a reply, and it is not used to train their models.' },
         { q: 'Can I delete my account?', a: 'Yes, at any time. Tap your profile icon in the top right of the app → Manage account → Delete account. This permanently removes all your data from our servers.' },
       ],
     },

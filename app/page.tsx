@@ -303,7 +303,7 @@ function WaitlistForm({ large = false, source = 'hero' }: { large?: boolean; sou
     <div>
     {status === 'error' && (
       <p className="text-sm mb-3" style={{ color: '#f2a65a' }}>
-        Something went wrong. Try <a href="mailto:hello@getanchorhealth.app" className="underline">hello@getanchorhealth.app</a> directly.
+        Something went wrong. Try <a href="mailto:getanchorhealth@gmail.com" className="underline">getanchorhealth@gmail.com</a> directly.
       </p>
     )}
     <form onSubmit={handleSubmit} className={`flex flex-col sm:flex-row gap-3 w-full ${large ? 'max-w-md' : 'max-w-sm'}`}>
@@ -1235,7 +1235,7 @@ export default function Home() {
               <motion.div variants={fadeUp(0.05, 20)} className="rounded-2xl p-8"
                 style={{ background: 'var(--color-surface)', border: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 8px 40px rgba(0,0,0,0.3)' }}>
                 <ContactForm />
-                <p className="text-muted text-xs text-center mt-4">We aim to respond within 24 hours · hello@getanchorhealth.app</p>
+                <p className="text-muted text-xs text-center mt-4">We aim to respond within 24 hours · getanchorhealth@gmail.com</p>
               </motion.div>
             </motion.div>
           </Section>

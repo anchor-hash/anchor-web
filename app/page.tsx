@@ -718,7 +718,7 @@ export default function Home() {
       icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
       items: [
         { q: 'Do you sell my data?', a: 'Never. Your data is yours, full stop. We are not in the business of selling personal information, especially health information.' },
-        { q: 'Who can see my entries?', a: 'Only you. Your journal entries and check-ins are encrypted on your device before they are stored, so no one at Anchor can read them. When you use the AI check-in, that message is sent securely to our AI provider to write a reply, and it is not used to train their models.' },
+        { q: 'Who can see my entries?', a: 'Your journal entries and check-ins are encrypted on your device before they are stored, and they are tied to your account sign-in. We never sell your data or use it for advertising, and access to our systems is restricted. When you use the AI check-in, that message is sent securely to our AI provider to write a reply, and it is not used to train their models.' },
         { q: 'Can I delete my account?', a: 'Yes, at any time. Tap your profile icon in the top right of the app → Manage account → Delete account. This permanently removes all your data from our servers.' },
       ],
     },
@@ -908,7 +908,7 @@ export default function Home() {
           >
             {[
               { text: '7 CBT techniques', label: 'built in' },
-              { text: '100% private', label: 'your data, yours only' },
+              { text: 'Private by design', label: 'encrypted before it\'s stored' },
               { text: 'No ads. Ever.', label: 'no tracking either' },
             ].map((s) => (
               <div key={s.label}>
@@ -1074,7 +1074,7 @@ export default function Home() {
                   {[
                     { title: 'AI Check-in', desc: 'Describe what you\'re feeling or what you just read. Anchor converses with you, then gives calm evidence-based perspective, not alarm, not dismissal.' },
                     { title: '7 Grounding Exercises', desc: 'Box breathing, physiological sigh, 5-4-3-2-1, body scan, worry postponement, safe place, cognitive defusion, guided and tap-through, no audio required.' },
-                    { title: 'Daily Journal', desc: 'Structured prompts and free writing with mood tracking. Private entries, only ever visible to you.' },
+                    { title: 'Daily Journal', desc: 'Structured prompts and free writing with mood tracking. Entries are encrypted and tied to your account.' },
                     { title: 'Mood Tracking', desc: 'Log how you\'re feeling each day. Anchor tracks your streak and shows your mood history over time.' },
                     { title: 'Weekly PHQ-4 Check-in', desc: 'A validated 4-question screening for anxiety and depression. Takes 30 seconds, shows up once a week.' },
                     { title: 'Learn Library', desc: 'Six evidence-based lessons covering the most common health anxiety spirals, cardiac, neurological, respiratory, digestive, skin, and general.' },

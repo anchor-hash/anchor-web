@@ -249,114 +249,24 @@ function Section({
   )
 }
 
-// ─── Waitlist Form ─────────────────────────────────────────────────────────────
-function WaitlistForm({ large = false, source = 'hero' }: { large?: boolean; source?: 'hero' | 'footer' }) {
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'duplicate' | 'error'>('idle')
+// ─── App Store link ────────────────────────────────────────────────────────────
+const APP_STORE_URL = 'https://apps.apple.com/au/app/id6772097483'
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!email) return
-    setStatus('loading')
-    try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source }),
-      })
-      const data = await res.json()
-      if (!data.ok) { setStatus('error'); return }
-      setStatus(data.duplicate ? 'duplicate' : 'success')
-    } catch {
-      setStatus('error')
-    }
-  }
-
-  if (status === 'success' || status === 'duplicate') {
-    return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="flex items-center gap-3 rounded-2xl px-5 py-4"
-        style={{ background: 'rgba(78,205,196,0.1)', border: '1px solid rgba(78,205,196,0.3)' }}
-      >
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <circle cx="9" cy="9" r="8" fill="#4ecdc4" />
-          <path d="M5.5 9l2.5 2.5 5-5" stroke="#0a1628" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-        <span className="text-teal text-sm font-medium">
-          {status === 'duplicate' ? "You're already on the list." : (
-            <>
-              You&apos;re on the list. Follow along on{' '}
-              <a href="https://www.instagram.com/anchorhealth.app/" target="_blank" rel="noopener noreferrer" className="underline">
-                Instagram
-              </a>{' '}
-              for updates.
-            </>
-          )}
-        </span>
-      </motion.div>
-    )
-  }
-
+// ─── App Store Badge ───────────────────────────────────────────────────────────
+function AppStoreBadge({ large = false }: { large?: boolean }) {
   return (
-    <div>
-    {status === 'error' && (
-      <p className="text-sm mb-3" style={{ color: '#f2a65a' }}>
-        Something went wrong. Try <a href="mailto:getanchorhealth@gmail.com" className="underline">getanchorhealth@gmail.com</a> directly.
-      </p>
-    )}
-    <form onSubmit={handleSubmit} className={`flex flex-col sm:flex-row gap-3 w-full ${large ? 'max-w-md' : 'max-w-sm'}`}>
-      <input
-        type="email"
-        placeholder="Your email address"
-        required
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className="flex-1 rounded-full px-5 py-3 text-sm text-heading outline-none placeholder-muted"
-        style={{
-          background: 'rgba(255,255,255,0.07)',
-          border: '1px solid rgba(255,255,255,0.14)',
-        }}
-        onFocus={(e) => {
-          e.target.style.border = '1px solid rgba(78,205,196,0.5)'
-          e.target.style.boxShadow = '0 0 0 3px rgba(78,205,196,0.08)'
-        }}
-        onBlur={(e) => {
-          e.target.style.border = '1px solid rgba(255,255,255,0.14)'
-          e.target.style.boxShadow = 'none'
-        }}
-      />
-      <motion.button
-        type="submit"
-        disabled={status === 'loading'}
-        whileHover={{ scale: 1.04 }}
-        whileTap={{ scale: 0.97 }}
-        className={`rounded-full font-semibold whitespace-nowrap transition-all ${large ? 'px-7 py-3.5 text-base' : 'px-6 py-3 text-sm'}`}
-        style={{
-          background: '#4ecdc4',
-          color: '#0a1628',
-          opacity: status === 'loading' ? 0.7 : 1,
-        }}
-      >
-        {status === 'loading' ? 'Joining…' : 'Notify me'}
-      </motion.button>
-    </form>
-    </div>
-  )
-}
-
-// ─── Coming Soon Badge ─────────────────────────────────────────────────────────
-function ComingSoonBadge({ large = false }: { large?: boolean }) {
-  return (
-    <div
-      className={`inline-flex items-center gap-3 rounded-full font-medium ${
+    <a
+      href={APP_STORE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Download Anchor on the App Store"
+      className={`inline-flex items-center gap-3 rounded-full font-medium transition-opacity hover:opacity-90 ${
         large ? 'px-8 py-4 text-base gap-4' : 'px-6 py-3 text-sm'
       }`}
       style={{
-        background: 'rgba(255,255,255,0.06)',
-        border: '1px solid rgba(255,255,255,0.14)',
-        color: '#9ec8dc',
+        background: '#4ecdc4',
+        border: '1px solid #4ecdc4',
+        color: '#0a1628',
       }}
     >
       <svg
@@ -364,15 +274,15 @@ function ComingSoonBadge({ large = false }: { large?: boolean }) {
         viewBox="0 0 814 1000"
         width={large ? 22 : 18}
         height={large ? 22 : 18}
-        fill="#9ec8dc"
+        fill="#0a1628"
       >
         <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105.5-57.8-155.5-127.4C46 790.8 0 665.4 0 552.9 0 349.2 120.1 241.3 238.4 241.3c66.5 0 121.2 43.4 162.7 43.4 39.5 0 101.1-46 176.3-46 28.5 0 130.9 2.6 198.3 99.2zm-234-181.5c31.1-36.9 53.1-88.1 53.1-139.3 0-7.1-.6-14.3-1.9-20.1-50.6 1.9-110.8 33.7-147.1 75.8-28.5 32.4-55.1 83.6-55.1 135.5 0 7.8 1.3 15.6 1.9 18.1 3.2.6 8.4 1.3 13.6 1.3 45.4 0 102.5-30.4 135.5-71.3z" />
       </svg>
       <span>
-        <span className="block text-[10px] opacity-75 font-normal leading-none mb-0.5">Coming to the</span>
+        <span className="block text-[10px] opacity-75 font-normal leading-none mb-0.5">Download on the</span>
         <span className={`font-semibold leading-none ${large ? 'text-lg' : 'text-base'}`}>App Store</span>
       </span>
-    </div>
+    </a>
   )
 }
 
@@ -447,6 +357,7 @@ function PricingCard({
   cta,
   highlighted = false,
   comingSoon = false,
+  href = APP_STORE_URL,
   isAnnual,
 }: {
   tier: string
@@ -457,6 +368,7 @@ function PricingCard({
   cta: string
   highlighted?: boolean
   comingSoon?: boolean
+  href?: string
   isAnnual: boolean
 }) {
   const displayPrice = isAnnual && annualPrice ? annualPrice : price
@@ -530,9 +442,10 @@ function PricingCard({
         ))}
       </ul>
 
-      {/* Real CTA — every tier scrolls to the waitlist form, no payment UI */}
+      {/* CTA — links to the App Store (or email for Clinical); no payment UI on the web */}
       <a
-        href="#waitlist"
+        href={href}
+        {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         className="text-center rounded-xl py-3.5 text-sm font-semibold transition-colors"
         style={{
           background: highlighted ? 'var(--color-accent)' : 'rgba(255,255,255,0.06)',
@@ -691,8 +604,8 @@ export default function Home() {
       category: 'Getting Started',
       icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4ecdc4" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>,
       items: [
-        { q: 'When will Anchor be on the App Store?', a: 'We\'re in the final stages before launch. Sign up above and we\'ll email you the moment it goes live. You\'ll be among the first to download it.' },
-        { q: 'Is it available on Android?', a: 'Anchor is launching on iOS first. Android is on our roadmap and we\'ll announce it when it\'s ready.' },
+        { q: 'Where can I download Anchor?', a: 'Anchor is available now on the App Store for iPhone. Search for Anchor or use the download button on this page.' },
+        { q: 'Is it available on Android?', a: 'Anchor is on iOS first. Android is on our roadmap and we\'ll announce it when it\'s ready.' },
         { q: 'How is Anchor different from therapy?', a: 'Anchor is a daily self-management tool for health anxiety, not a replacement for clinical care. It gives you evidence-based techniques to use between sessions, or on your own journey.' },
       ],
     },
@@ -757,15 +670,17 @@ export default function Home() {
             ))}
           </motion.nav>
 
-          {/* CTA — coming soon pill */}
+          {/* CTA — download pill */}
           <motion.div initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.15 }}>
             <a
-              href="#waitlist"
+              href={APP_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all"
               style={{ background: 'rgba(78,205,196,0.12)', color: '#4ecdc4', border: '1px solid rgba(78,205,196,0.3)' }}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-teal inline-block" style={{ animation: 'pulse 2s ease-in-out infinite' }} />
-              Join waitlist
+              Download
             </a>
           </motion.div>
 
@@ -815,7 +730,9 @@ export default function Home() {
               </motion.a>
             ))}
             <motion.a
-              href="#waitlist"
+              href={APP_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -823,7 +740,7 @@ export default function Home() {
               className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold"
               style={{ background: 'var(--color-accent)', color: 'var(--color-bg)' }}
             >
-              Join waitlist
+              Download
             </motion.a>
           </motion.div>
         )}
@@ -853,7 +770,7 @@ export default function Home() {
               circle was pushing the email capture form below the fold on phones. */}
           <AnchorMark />
 
-          {/* Coming soon badge */}
+          {/* Availability badge */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -862,7 +779,7 @@ export default function Home() {
             style={{ background: 'rgba(78,205,196,0.1)', color: '#4ecdc4', border: '1px solid rgba(78,205,196,0.2)' }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-teal" style={{ animation: 'pulse 2s ease-in-out infinite' }} />
-            Coming to iPhone · Evidence-based CBT
+            Now on iPhone · Evidence-based CBT
           </motion.div>
 
           <AnimatedHeadline lines={["Your mind is racing.", "Let's slow it down."]} center startDelay={0.85} />
@@ -882,18 +799,15 @@ export default function Home() {
             </span>
           </motion.p>
 
-          {/* Waitlist CTA */}
+          {/* Download CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.55 }}
             className="flex flex-col items-center gap-2 md:gap-4 w-full"
           >
-            <p className="text-muted text-sm font-medium">Get notified when we launch on the App Store:</p>
-            <WaitlistForm />
-            {/* Hidden on mobile — was pushing content down below the fold unnecessarily. */}
-            <div className="hidden md:flex items-center gap-3">
-              <ComingSoonBadge />
+            <div className="flex items-center gap-3">
+              <AppStoreBadge />
               <p className="text-muted text-xs">iOS · Free to download</p>
             </div>
           </motion.div>
@@ -1192,15 +1106,15 @@ export default function Home() {
             <motion.div variants={staggerContainer(0.1)} className="grid md:grid-cols-3 gap-6 items-start">
               <PricingCard tier="Free" price="Free" description="A solid toolkit for understanding and managing health anxiety, at no cost."
                 features={['1 AI check-in per week', '7 grounding exercises', 'Daily journal & mood tracking', 'Weekly PHQ-4 screening', 'Full check-in history', 'Learn library (6 lessons)']}
-                cta="Join the waitlist" isAnnual={isAnnual} />
+                cta="Download free" isAnnual={isAnnual} />
               <PricingCard tier="Anchor Plus" price="A$12.99" annualPrice="A$6.67"
                 description="Unlimited check-ins, full pattern analysis, and tools for lasting change."
                 features={['Everything in Free', 'Unlimited check-ins', 'Check-in insights breakdown', 'Full patterns & trigger analysis', 'GP health summary', 'Monthly letter from Anchor', 'Early access to new features']}
-                cta="Join the waitlist" highlighted isAnnual={isAnnual} />
+                cta="Get Anchor Plus" highlighted isAnnual={isAnnual} />
               <PricingCard tier="Clinical" price="Custom"
                 description="For mental health clinics and practices who want to recommend Anchor to clients."
                 features={['Everything in Plus', 'Clinician dashboard', 'Client progress sharing', 'White-label option', 'Bulk licensing', 'Dedicated onboarding']}
-                cta="Join the waitlist" comingSoon isAnnual={isAnnual} />
+                cta="Contact us" href="mailto:getanchorhealth@gmail.com" comingSoon isAnnual={isAnnual} />
             </motion.div>
           </Section>
         </div>
@@ -1242,7 +1156,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── WAITLIST CTA ────────────────────────────────────────────────── */}
+      {/* ─── DOWNLOAD CTA ────────────────────────────────────────────────── */}
       <section className="min-h-screen flex items-center relative overflow-hidden py-28">
         <motion.div animate={{ opacity: [0.3, 0.55, 0.3] }} transition={{ duration: 5, repeat: Infinity }}
           className="absolute inset-0 pointer-events-none"
@@ -1254,7 +1168,7 @@ export default function Home() {
               <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium mb-8"
                 style={{ background: 'rgba(78,205,196,0.1)', color: '#4ecdc4', border: '1px solid rgba(78,205,196,0.2)' }}>
                 <span className="w-1.5 h-1.5 rounded-full bg-teal" style={{ animation: 'pulse 2s ease-in-out infinite' }} />
-                Coming to the App Store
+                Now on the App Store
               </div>
             </motion.div>
             <motion.h2 variants={fadeUp(0.05)} className="font-lora text-4xl md:text-6xl font-bold text-heading mb-6">
@@ -1262,14 +1176,11 @@ export default function Home() {
               <span className="text-gradient-teal">calm again.</span>
             </motion.h2>
             <motion.p variants={fadeUp(0.1)} className="text-body text-lg max-w-xl mx-auto mb-10">
-              Join people breaking the health anxiety cycle, one check-in at a time. We'll email you the day Anchor goes live.
+              Join people breaking the health anxiety cycle, one check-in at a time. Download Anchor free on the App Store.
             </motion.p>
             <motion.div variants={fadeUp(0.15)} className="flex flex-col items-center gap-4">
-              <WaitlistForm large source="footer" />
-              <div className="flex items-center gap-3 mt-2">
-                <ComingSoonBadge large />
-              </div>
-              <p className="text-muted text-sm">No spam. One email when we launch.</p>
+              <AppStoreBadge large />
+              <p className="text-muted text-sm">iOS · Free to download</p>
             </motion.div>
           </Section>
         </div>

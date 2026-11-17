@@ -974,7 +974,7 @@ export default function Home() {
             <motion.div variants={fadeUp(0)} className="text-center mb-16">
               <p className="text-teal text-sm font-medium tracking-widest uppercase mb-4">Features</p>
               <h2 className="font-lora text-4xl md:text-5xl font-bold text-heading mb-4">Everything you need to manage health anxiety</h2>
-              <p className="text-body max-w-xl mx-auto">Start with the free tier. Unlock deeper tools with Anchor Plus.</p>
+              <p className="text-body max-w-xl mx-auto">Start with the free tier. Unlock deeper tools with Anchor Plus. During early access, everything in Plus is free.</p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-x-12 gap-y-12 items-start">
@@ -1080,7 +1080,7 @@ export default function Home() {
             <motion.div variants={fadeUp(0)} className="text-center mb-12">
               <p className="text-teal text-sm font-medium tracking-widest uppercase mb-4">Pricing</p>
               <h2 className="font-lora text-4xl md:text-5xl font-bold text-heading mb-4">Start free. Go deeper when you're ready.</h2>
-              <p className="text-body max-w-xl mx-auto mb-8">No pressure. The free tier is genuinely useful. Anchor Plus unlocks everything for less than a coffee a week.</p>
+              <p className="text-body max-w-xl mx-auto mb-8">No pressure. The free tier is genuinely useful, and during early access everything in Anchor Plus is free. Later, Plus costs less than a coffee a week.</p>
 
               {/* Toggle */}
               <motion.div variants={fadeUp(0.1)} className="inline-flex items-center gap-1 p-1 rounded-full" style={{ background: 'var(--color-surface)', border: '1px solid rgba(255,255,255,0.08)' }}>
@@ -1110,7 +1110,7 @@ export default function Home() {
               <PricingCard tier="Anchor Plus" price="A$12.99" annualPrice="A$6.67"
                 description="Unlimited check-ins, full pattern analysis, and tools for lasting change."
                 features={['Everything in Free', 'Unlimited check-ins', 'Check-in insights breakdown', 'Full patterns & trigger analysis', 'GP health summary', 'Monthly letter from Anchor', 'Early access to new features']}
-                cta="Get Anchor Plus" highlighted isAnnual={isAnnual} />
+                cta="Free during early access" highlighted isAnnual={isAnnual} />
               <PricingCard tier="Clinical" price="Custom"
                 description="For mental health clinics and practices who want to recommend Anchor to clients."
                 features={['Everything in Plus', 'Clinician dashboard', 'Client progress sharing', 'White-label option', 'Bulk licensing', 'Dedicated onboarding']}
